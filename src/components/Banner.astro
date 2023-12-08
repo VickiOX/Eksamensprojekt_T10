@@ -1,0 +1,50 @@
+---
+import "../css/style.css";
+---
+
+<article class="flex_big">
+    <div class="flex_small">
+        <p class="fat_font p_banner">LEVERING</p>
+        <p class="p_banner">1-5 HVERDAGE</p>
+    </div>
+    <img src="../../public/nav_middel_line.svg" alt="">
+    <div class="flex_small">
+        <p class="fat_font p_banner">GRATIS FRAGT</p>
+        <p class="p_banner">OVER 500 KR.</p>
+    </div>
+</article>
+
+
+<style>
+    .p_banner{
+        font-size: 10px;
+        color: var(--footer_color);
+    }
+
+    .flex_big{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: var(--button_yellow);
+    }
+
+    .flex_small{
+        display: flex;
+        gap: 5px;
+    }
+    .fat_font{
+        font-weight:bold;
+    }
+
+    @media (min-width: 1000px){
+        .flex_big{
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .p_banner{
+        font-size: 13px;
+    }
+
+    }
+    
+</style>
