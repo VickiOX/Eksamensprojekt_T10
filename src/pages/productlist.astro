@@ -1,6 +1,14 @@
 ---
 import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
+
+const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick",
+{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphbGdlYWFrY3pndnZhYnl1a3h5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIwNDYyMTMsImV4cCI6MjAxNzYyMjIxM30.whMkOHF_vj4y1xhGC_SGbzmJ7qCi71W9ouWSLbijLEE"
+    },}).then((res) => res.json());
+  
 ---
 
 <Mainlayout title="Produkter">
