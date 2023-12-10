@@ -1,0 +1,106 @@
+---
+import "../css/style.css";
+---
+
+<article class="header_nav">
+    <img class="logo_mobile" src="../../public/logo_mobile_version.svg" alt="One Brick mobile logo">
+    <a href="/"><img class="logo_desk" src="../../public/logo_desk_version.svg" alt="One Brick computer logo"></a>
+    <a href="/productlist">PRODUKTER</a>
+    <a href="/donate_sell">DONER/SÆLG</a>
+    <a href="/concept">VORES KONCEPT</a>
+    <a href="/about_us">OM OS</a>
+    <div class="burger_and_basket">
+        <img class="kurv" src="../../public/kurv.svg" alt="kurv icon">
+        <div class="burger_menu_icon">
+            <span class="menu_lines_1"></span>
+            <span class="menu_lines_2"></span>
+            <span class="menu_lines_3"></span>
+        </div>
+    </div>
+</article>
+
+<style>
+
+.kurv{
+    width: 35px;
+}
+.burger_and_basket{
+    display: flex;
+    gap: 20px;
+}
+.logo_desk{
+    display: none;
+}
+.header_nav{
+    display: flex;
+    align-items: center;
+    background-color: var(--background_color);
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+}
+
+a{
+    display: none;
+}
+
+.burger_menu_icon{
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+} 
+
+.menu_lines_1, .menu_lines_2, .menu_lines_3{
+    display: block;
+    height: 3px;
+    width: 50px;
+    background-color: var(--button_yellow);
+}
+
+.burger_menu_icon.active .menu_lines_1{
+    transform: translateY(13px) rotate(45deg);
+    background-color: var(--button_red);
+}
+
+.burger_menu_icon.active .menu_lines_2{
+    opacity: 0;
+}
+
+.burger_menu_icon.active .menu_lines_3{
+    transform: translateY(-13px) rotate(-45deg);
+    background-color: var(--button_red);
+}
+
+
+@media (min-width: 1000px){
+
+    .kurv{
+    width: 50px;
+}
+    .header_nav{
+        padding: 10px 40px 10px 40px;
+    }
+    .logo_desk{
+        display: block;
+    }
+    .logo_mobile{
+        display: none;
+    }
+    .burger_menu_icon{
+        display: none;
+    }
+    a{
+        display:block;
+    }
+
+    ul{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0;
+        gap: 100px;
+    }
+
+}
+
+</style>
+
+<script src="../js/script.js"></script>
