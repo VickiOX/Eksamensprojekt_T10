@@ -3,15 +3,18 @@ import "../css/style.css";
 ---
 
 <article class="drop_down">
-    <a href="/productlist">PRODUKTER</a>
-    <a href="/donate_sell">DONER/SÆLG</a>
-    <a href="/concept">VORES KONCEPT</a>
-    <a href="/about_us">OM OS</a>
+    <a class="link" href="/productlist">PRODUKTER</a>
+    <a class="link" href="/donate_sell">DONER/SÆLG</a>
+    <a class="link" href="/concept">VORES KONCEPT</a>
+    <a class="link" href="/about_us">OM OS</a>
 </article>
 
 <style>
 
     .drop_down{
+        display: none;
+    }
+    .drop_down.active{
         display: flex;
         flex-direction: column;
         background-color: var(--background_color);
@@ -20,4 +23,12 @@ import "../css/style.css";
         padding-left: 30px;
     }
 
+    @media (min-width: 1000px){
+        .drop_down.active{
+        display: none;
+    }
+    }
+
 </style>
+
+<script src="../js/script.js"></script>

@@ -3,18 +3,18 @@ import "../css/style.css";
 ---
 
 <article class="header_nav">
-    <img class="logo_mobile" src="../../public/logo_mobile_version.svg" alt="">
-    <img class="logo_desk" src="../../public/logo_desk_version.svg" alt="">
+    <img class="logo_mobile" src="../../public/logo_mobile_version.svg" alt="One Brick mobile logo">
+    <a href="/"><img class="logo_desk" src="../../public/logo_desk_version.svg" alt="One Brick computer logo"></a>
     <a href="/productlist">PRODUKTER</a>
     <a href="/donate_sell">DONER/SÆLG</a>
     <a href="/concept">VORES KONCEPT</a>
     <a href="/about_us">OM OS</a>
     <div class="burger_and_basket">
-        <img class="kurv" src="../../public/kurv.svg" alt="">
+        <img class="kurv" src="../../public/kurv.svg" alt="kurv icon">
         <div class="burger_menu_icon">
-            <span class="menu_lines"></span>
-            <span class="menu_lines"></span>
-            <span class="menu_lines"></span>
+            <span class="menu_lines_1"></span>
+            <span class="menu_lines_2"></span>
+            <span class="menu_lines_3"></span>
         </div>
     </div>
 </article>
@@ -49,12 +49,28 @@ a{
     gap: 10px
 } 
 
-.menu_lines{
+.menu_lines_1, .menu_lines_2, .menu_lines_3{
     display: block;
     height: 3px;
     width: 50px;
     background-color: var(--button_yellow);
 }
+
+.burger_menu_icon.active .menu_lines_1{
+    transform: translateY(13px) rotate(45deg);
+    background-color: var(--button_red);
+}
+
+.burger_menu_icon.active .menu_lines_2{
+    opacity: 0;
+}
+
+.burger_menu_icon.active .menu_lines_3{
+    transform: translateY(-13px) rotate(-45deg);
+    background-color: var(--button_red);
+}
+
+
 @media (min-width: 1000px){
 
     .kurv{
@@ -86,3 +102,5 @@ a{
 }
 
 </style>
+
+<script src="../js/script.js"></script>
