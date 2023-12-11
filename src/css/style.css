@@ -3,7 +3,7 @@
 }
 
 body {
-  padding: 0%;
+  padding: 0;
   margin: 0;
   background-color: #242520;
 }
@@ -21,9 +21,15 @@ body {
   --footer_color: #151513;
 }
 
-p {
+p, h1, h2, h3, h4 {
   color: var(--font_color);
   font-family: var(--system-ui);
+}
+
+h2{
+  font-size: 40px;
+  margin:0;
+  padding:6px 0 0 0;
 }
 
 a {
@@ -42,4 +48,8 @@ a:active {
 
 li {
   list-style: none;
+}
+
+body{
+  background-color: var(--background_color);
 }
