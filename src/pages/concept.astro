@@ -1,12 +1,80 @@
 ---
 import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
+import ConceptGrid from "../components/ConceptGrid.astro";
+import Process from "../components/Process.astro";
+import ProcentBanner from "../components/ProcentBanner.astro";
+import FN from "../components/FN.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Mainlayout title="Vores koncept">
-<!-- her skriver vi alt indhold til siden ;D -->
+
+    <h1>Vores koncept</h1>
+    <p>Hos OneBrick sælger vi brugte legoklodser, som andre lego-entusiaster har haft glæde af. Vi tilbyder løsdele, plader og minifigurer samt mulighed for donation og salg af dine brugte legoklodser. Dette alt sammen, for at bidrage til et mere bæredygtigt samfund.</p>
+
+    <ConceptGrid/>
+
+    <p class="paragraf-3">Vi mener at vores fornemmeste opgave er at give brugte legoklodser et nyt liv, uden at dette skal gå på kompromis med kvaliteten af klodsen.</p>
+
+    <Process img="../Public/img-figur/Legobrik.svg" alt="Legoklods" header="1. Vask" text="Legoklodsen bliver vasket i neutral sæbe, eddike og vand."/>
+    <Process img="../Public/img-figur/Legobrik.svg" alt="Legoklods" header="2. Tørring" text="Legoklodsen bliver lagt til tørring i et tørrerum."/>
+    <Process img="../Public/img-figur/Legobrik.svg" alt="Legoklods" header="3. Sortering" text="Legoklodsen sorteres efter ønsket kvalitet."/>
+    <Process img="../Public/img-figur/Legobrik.svg" alt="Legoklods" header="4. Pakning" text="Legoklodsen pakkes og sendes af sted til forbrugeren."/>
+
+    <ProcentBanner header="51%" text="Mener at gode genbrugsvare spiller en vigtig rolle for at skabe et bæredygtigt samfund"/>
+
+    <h2>FN verdensmål</h2>
+    <FN img="../Public/img-figur/fn5.webp" alt="FN Verdensmål 5" text="Vi sikrer ligestilling mellem kønnene ved aktivt at fravælge omtalen af køns-pronominer på vores digitale platforme. "/>
+    <FN img="../Public/img-figur/fn12.webp" alt="FN Verdensmål 12" text="Vi bidrager til et ansvarligt forbrug og til en cirkulær produktion, da vi handler med brugte legoklodser, der bruges i samme form som da den blev produceret."/>
+    <FN img="../Public/img-figur/fn13.webp" alt="FN Verdensmål 13" text="Vi bidrager til at mindske klimaaftrykket på planeten, da vi har taget et aktivt valg om at lave vores digitale webløsning så bæredygtig som muligt."/>
+
+    <Footer/>
+
 </Mainlayout>
 
 <style>
+ 
+     h1, h2, p{
+            font-family: var(--system-ui); 
+            margin: 20px;
+            color: var( --font_color);
+        }
+    .paragraf-3 {
+        margin-top: -10px;
+    }
 
+    h2{
+        text-align: center;
+        padding-top: 20px;
+        margin-bottom: -10px;
+    }
+
+    @media (min-width: 1000px){
+        h1, h2, p{
+            font-size: 22px;
+        }
+    h1{
+        font-size: 110px;
+        font-weight: 900;
+        margin-left: 70px;
+        margin-top: 50px;
+    }
+    p{
+        margin-left: 70px;
+        margin-right: 700px;
+        margin-bottom: -40px;
+        margin-top: 80px;
+    }
+    .paragraf-3 {
+        margin-top: -695px;
+        margin-bottom: 120px;
+        margin-right: 700px;
+    }
+
+    h2{
+        font-size: 60px;
+        margin-top: 50px;
+    }
+    }
 </style>

@@ -5,6 +5,7 @@
 body {
   padding: 0%;
   margin: 0;
+  background-color: #242520;
 }
 
 /*En rod pakket med system fonte, når vi kalder den i et element bruger vi " font-family: var(--system-ui); " */

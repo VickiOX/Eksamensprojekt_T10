@@ -1,0 +1,54 @@
+---
+const {img, header, text} = Astro.props;
+---
+<article class="grid_1-1">
+
+    <div class="img">
+        <img src={img}>
+    </div>
+    <div class="text">
+        <h2>{header}</h2>
+        <p>{text}</p>
+    </div>
+
+</article>
+<style>
+    .grid_1-1{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+    }
+
+    .img {
+        margin-left: 40px;
+        margin-top: 20px;
+    }
+    .text{
+        margin-right: 30px;
+        margin-left: -60px;
+        margin-top: 0px;
+        font-family: var(--system-ui);
+        color: var( --font_color);
+    }
+
+    .text p {
+        margin-top: -10px;
+    }
+
+    @media (min-width: 1000px){
+        .img {
+        margin-left: 70px;
+        margin-top: 20px;
+    }
+
+    .text{
+        margin-right: 30px;
+        margin-left: -550px;
+        margin-top: -20px;
+        font-family: var(--system-ui);
+        font-size: 22px;
+        color: var( --font_color);
+    }
+    }
+
+</style>
