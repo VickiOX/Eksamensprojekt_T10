@@ -4,24 +4,32 @@ import Open from "./Open.astro";
 import Location from "./Location.astro";
 import "../css/style.css";
 ---
-
-<div class="footer"> <!-- idel i flex -->
-    <Contact/>
-    <Open/>
-    <Location/>
+<div class="footer"> 
+    <div class="wrapper"> 
+        <Contact/>
+        <Open/>
+        <Location/>
+    </div>
+    <p class="copyright">@COPYRIGHT 2023</p>
 </div>
 
 <style>
 .footer{
     background-color: var(--footer_color);
+    padding: 20px;
     
 }
 
 @media screen and (min-width: 1000px){
-    .footer{
+    .wrapper{
         display: flex;
         justify-content: space-between;
         padding: 0 10px;
+    }
+
+    .copyright{
+        text-align: end;
+        padding-right:70px;
     }
 }
 </style>

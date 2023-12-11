@@ -4,19 +4,31 @@
 
 <style>
 button{
-    color: #151513;
-    background-color: #D0C6A2;
-    padding:10px 18px;
-    font-size: 14px;
+    color: var(--footer_color);
+    background-color: var(--button_yellow);
+    padding:8px 16px;
+    font-size: 12px;
     cursor: pointer;
     border-radius: 5px;
     border:none;
 }
 
 button:hover{
-    color:aliceblue;
-    background-color: #151513;
-    border:2px solid #D0C6A2;
-    padding:8px 16px;
+    color: var(--font_color);
+    background-color: var(--footer_color);
+    border:2px solid var(--button_yellow);
+    padding:6px 14px;
+}
+
+@media screen and (min-width: 1000px){
+    button{
+        padding:10px 18px;
+        font-size: 14px;
+    }
+
+    button:hover{
+        padding:8px 16px;
+        font-size: 14px;
+    }
 }
 </style>

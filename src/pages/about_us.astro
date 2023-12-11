@@ -1,77 +1,85 @@
 ---
 import "../css/style.css";
-import Mainlayout from "../layouts/Mainlayout.astro";
+import Mainlayout from "../layouts/Mainlayout.astro"
+import TextBoxAboutUs from "../components/TextBoxAboutUs.astro";
 ---
 
 <Mainlayout title="Om os">
 <!-- her skriver vi alt indhold til siden ;D -->
 <section> 
     <h2> Om Os</h2>
-    <p>
-        “Jeg kan ikke huske en tid, hvor jeg ikke har leget med lego. Selv da jeg var barn, var jeg kæmpe lego-fan. Her husker jeg tydeligt, hvordan jeg samlede på Harry Potter-sættene, og hvordan hver en klods udgjorde en vigtig del af et samlet puslespil. Da jeg fandt mine gamle lego-sæt frem og begyndte at sortere i det, kom minderne pludselig tilbage.
-    </p>
 
-    <div class="flex">
-     
+    <div class="grid_3-1">
+        <div> 
+        <p class="OmOs_Text1">
+            “Jeg kan ikke huske en tid, hvor jeg ikke har leget med lego. Selv da jeg var barn, var jeg kæmpe lego-fan. Her husker jeg tydeligt, hvordan jeg samlede på Harry Potter-sættene, og hvordan hver en klods udgjorde en vigtig del af et samlet puslespil. Da jeg fandt mine gamle lego-sæt frem og begyndte at sortere i det, kom minderne pludselig tilbage.
+        </p>
+        <div class="grid_2-1"> 
         <p>
             Jeg undersøgte, om man mon kunne sælge brugt lego og hvad folk tog for det. Til min store overraskelse syntes jeg, 
             at priserne var meget høje. Jeg blev meget ærgerlig over, at i vores ellers så bæredygtige samfund, så skulle en gammel/brugt legoklods måske sætte en begrænsning for tilgængeligheden.
         </p>
-    
 
-  
-        <img class="legomand" id="red_legomand" src="/icons/red_legomand.svg" alt="Rød legomand"> 
-  
+        <img class="legomand" id="red_legomand1" src="/icons/red_legomand.svg" alt="Rød legomand"> 
+        </div>
+        <p> 
+            Jeg ville derfor skabe en forretning der satte fokus på, at gøre legoklodser til en allemandseje for både børn og voksne. Ud fra denne idé blev OneBrick skabt.”
+        </p>
+
+        <p id="citat">- Marcus, stifter</p>
+        </div>
+      
+        <img class="legomand" id="red_legomand2" src="/icons/red_legomand.svg" alt="Rød legomand"> 
     </div>
-
-    <p> 
-        Jeg ville derfor skabe en forretning der satte fokus på, at gøre legoklodser til en allemandseje for både børn og voksne. Ud fra denne idé blev OneBrick skabt.”
-    </p>
-
-    <p id="citat">- Marcus, stifter</p>
 </section>
-
-    <div class="text_about_us_box"> 
-        <p id="text_p_1">
-            Mange af os lego-fans har måske oplevet at mangle en bestemt brik, for at fuldende et lego-sæt -eller vores egen kreative løsning. Vi indså derfor, at der måtte være en billigere og mere bæredygtig løsning på, hvordan man kan købe enkeltklodser.
-        </p>
-
-        <p id="text_p_2">
-            Vi tog derfor i efteråret 2023, initiativ til at skabe OneBrick. Her kan alle lego-entusiaster købe brugte, billige og bæredygtige legoklodser, som stort set er så gode som nye.
-        </p>
-    </div>
-
-
+<TextBoxAboutUs/>
 </Mainlayout>
 
 <style>
-
 section {
     padding: 0 20px;
 }
-.flex{
-    display: flex;
+.grid_3-1{
+    display: none:
 }
 
-.text_about_us_box{
-    background-color: var( --box_color);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 30px 20px;
+.grid_2-1{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
 }
+
 
 #citat{
     font-weight: 800;
     padding-bottom: 30px;
 }
 
-#text_p_1{
-    font-weight: 100;
+#red_legomand1{
+    margin: auto;
+    max-width: 200px;
 }
-#text_p_2{
-    font-weight: 600;
+#red_legomand2{
+    display: none;
+}
+
+
+@media screen and (min-width: 1000px){
+    #red_legomand2{
+        min-width:300px;
+    }
+    .grid_3-1{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    }
+    #red_legomand1{
+        display: none;
+    }
+    .grid_2-1{
+    grid-template-columns: 1fr;
+}
+    #red_legomand2{
+        display: grid;
+    }
 }
 
 </style>
