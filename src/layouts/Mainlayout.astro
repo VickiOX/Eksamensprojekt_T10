@@ -4,6 +4,7 @@ const {title} = Astro.props;
 import Banner from "../components/Banner.astro";
 import Nav from "../components/Nav.astro";
 import DropDown from "../components/DropDown.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -23,7 +24,7 @@ import DropDown from "../components/DropDown.astro";
 		<main>
             <slot/>
         </main>
-        <footer></footer>
+        <footer> <Footer/> </footer>
 	</body>
 </html>
 
