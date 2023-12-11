@@ -1,0 +1,51 @@
+---
+import "../css/style.css";
+---
+
+<article class="drop_down_category_list">
+    <section class="exit_icon">
+        <span class="line_1"></span>
+        <span class="line_2"></span>
+    </section>
+    <section class="search_bar">
+
+    </section>
+    <section class="category_list">
+
+    </section>
+</article>
+
+<style>
+
+    .drop_down_category_list{
+        background-color: var(--box_color);
+    }
+
+    article{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .exit_icon{
+        align-self: flex-end;
+    }
+
+    .line_1{
+        display: block;
+        height: 3px;
+        width: 40px;
+        background-color: var(--button_red);
+        transform: translateY(1px) rotate(45deg);
+    }
+
+    .line_2{
+        display: block;
+        height: 3px;
+        width: 40px;
+        background-color: var(--button_red);
+        transform: translateY(-1px) rotate(-45deg);
+    }
+
+</style>
+
+<script src="../js/script.js"></script>
