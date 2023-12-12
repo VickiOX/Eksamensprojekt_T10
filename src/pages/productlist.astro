@@ -1,6 +1,8 @@
 ---
 import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import DropCategory from "../components/DropCategory.astro";
 
 const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick",
 {
@@ -12,9 +14,88 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
 ---
 
 <Mainlayout title="Produkter">
-<!-- her skriver vi alt indhold til siden ;D -->
+    <article class="grid_1">
+        <section class="category_list">
+            
+        </section>
+        <section class="product_list">
+            <h1>Produkter</h1>
+            <button class="category_bnt">KATEGORI LISTE <img class="drop_down_arrow" src="../../public/drop_down_pil.svg" alt="pil icon"></button>
+            <DropCategory/>
+            <div class="product_grid">
+               {data.map((product)=>{
+                return <ProductCard card={product}/>
+               })} 
+            </div>
+        </section>
+    </article>
 </Mainlayout>
 
 <style>
 
+    .grid_1{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .product_grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+    .category_list{
+        display: none;
+    }
+    .product_list{
+        background-color: var(--background_color);
+    }
+
+    h1{
+        text-align: start;
+    }
+
+    .drop_down_arrow.active {
+        rotate: 90deg;
+    }
+
+    .category_bnt{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 35px;
+        width: 150px;
+        
+    }
+
+    @media (min-width: 1000px){
+      
+        .category_list{
+            display: block;
+            background-color: var(--background_color);
+        }
+        .product_list{
+            background-color: var(--box_color);
+            border-top-left-radius: 4px;
+        }
+        .grid_1{
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+        }
+
+        .product_grid{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .category_bnt{
+            display: none;
+        }
+    }
+
 </style>
+
+<script src="../js/script.js"></script>

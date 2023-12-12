@@ -1,0 +1,84 @@
+---
+import "../css/style.css";
+const {card} = Astro.props;
+console.log(card);
+---
+
+<article class="card_flex">
+    <img src={card.Img} alt="Legoklods">
+    <span class="text_flex"><p class="bold">Lego type:</p> <p>{card.Type} {card.Stud}</p></span>
+    <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{card.Klodsnummer}</p></span>
+    <span class="text_flex"><p class="bold">Farve:</p> <p>{card.Farve}</p></span>
+    <button class="se_mere_bt">SE MERE</button>
+</article>
+
+<style>
+
+/* vi skal lige finde ud af hvilken der er pænest */
+.bold{
+    /* font-weight: bold; */
+    /* text-decoration: underline; */
+}
+
+.card_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    padding: 40px 10px 40px 10px;
+}
+
+.card_flex img{
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.text_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+p{
+    margin: 5px;
+}
+
+.se_mere_bt{
+    width: 100px;
+    height: 30px;
+    align-self: self-start;
+    margin-top: 20px;
+}
+
+@media (min-width: 1000px){
+     
+.card_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    padding: 70px 10px 70px 10px;
+}
+
+.card_flex img{
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.text_flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.se_mere_bt{
+    width: 100px;
+    height: 30px;
+    align-self: center;
+    margin-top: 30px;
+}
+
+}
+
+</style>
