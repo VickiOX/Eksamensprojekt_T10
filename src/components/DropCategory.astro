@@ -3,21 +3,55 @@ import "../css/style.css";
 ---
 
 <article class="drop_down_category_list">
-    <section class="exit_icon">
-        <span class="line_1"></span>
-        <span class="line_2"></span>
-    </section>
     <section class="search_bar">
 
     </section>
     <section class="category_list">
-
+        <details>
+            <summary>Farver:</summary>
+            <p>Rød</p>
+            <p>Orange</p>
+            <p>Gul</p>
+            <p>Grøn</p>
+            <p>Blå</p>
+            <p>Lilla</p>
+            <p>Hvid</p>
+            <p>Sort</p>
+        </details>
+        <details>
+            <summary>Type:</summary>
+            <p>Klods</p>
+            <p>Plade</p>
+            <p>Slope</p>
+            <p>Andet</p>
+        </details>
     </section>
 </article>
 
 <style>
 
+    summary{
+        font-family: var(--system-ui);
+        color: var(--font_color);
+        font-size: 25px;
+    }
+
+    details{
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    details p{
+        font-size: 18px;
+        padding-left: 25px;
+    }
+
     .drop_down_category_list{
+        display: none;
+    }
+
+    .drop_down_category_list.active{
+        display: block;
         background-color: var(--box_color);
     }
 
@@ -45,6 +79,18 @@ import "../css/style.css";
         background-color: var(--button_red);
         transform: translateY(-1px) rotate(-45deg);
     }
+
+    .category_list{
+        padding: 10px 0px 20px 0px;
+    }
+
+    @media (min-width: 1000px){
+      
+        .search_bar, .category_list{
+            display: none;
+        }
+
+  }
 
 </style>
 
