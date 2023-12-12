@@ -16,11 +16,33 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
 <Mainlayout title="Produkter">
     <article class="grid_1">
         <section class="category_list">
-            
+            <section class="search">
+
+            </section>
+            <section class="category">
+                <details>
+                    <summary>Farver</summary>
+                    <p>Rød</p>
+                    <p>Orange</p>
+                    <p>Gul</p>
+                    <p>Grøn</p>
+                    <p>Blå</p>
+                    <p>Lilla</p>
+                    <p>Hvid</p>
+                    <p>Sort</p>
+                </details>
+                <details>
+                    <summary>Type</summary>
+                    <p>Klods</p>
+                    <p>Plade</p>
+                    <p>Slope</p>
+                    <p>Andet</p>
+                </details>
+            </section>
         </section>
         <section class="product_list">
             <h1>Produkter</h1>
-            <button class="category_bnt">KATEGORI LISTE <img class="drop_down_arrow" src="../../public/drop_down_pil.svg" alt="pil icon"></button>
+            <button class="category_bnt">KATEGORI LISTE <img class="drop_down_arrow" src="../../public/drop_down_arrow.svg" alt="pil icon"></button>
             <DropCategory/>
             <div class="product_grid">
                {data.map((product)=>{
@@ -52,6 +74,10 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
 
     h1{
         text-align: start;
+        font-size: 60px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
     }
 
     .drop_down_arrow.active {
@@ -65,11 +91,68 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
         gap: 10px;
         height: 35px;
         width: 150px;
-        
+        margin-left: 11px;
+        color:var(--fotter_color);
+        background-color: var(--button_yellow);
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 3px;
+        border:none;
+    }
+
+    .category_bnt:hover{
+        color:var(--font_color);
+        background-color: var(--footer_color);
+        border:3px solid var(--button_yellow);
+    }
+
+    .category_bnt:active{
+        color:var(--font_color);
+        background-color: var(--footer_color);
+        border:3px solid var(--button_yellow);
     }
 
     @media (min-width: 1000px){
-      
+        details, p{
+            font-size: 18px;
+            padding-left: 25px;
+        }
+
+        details, p:hover{
+            text-decoration: underline;
+        }
+
+        details, p:active{
+            text-decoration: underline;
+        }
+        details{
+            cursor: pointer;
+            padding: 10px;
+            text-decoration: none;
+        }
+        summary{
+            font-family: var(--system-ui);
+            color: var(--font_color);
+            font-size: 25px;
+            display: block;
+        }    
+        
+        summary:hover{
+            text-decoration: underline;
+        }
+
+        summary:active{
+            text-decoration: underline;
+        }
+        summary::after{
+            content: url('../../public/drop_down_arrow_white.svg') ;
+            margin-left: 10px;
+        }
+
+        details[open] > summary::after{
+            content: url('../../public/drop_down_arrow_white_turned.svg') ;
+            
+        }
         .category_list{
             display: block;
             background-color: var(--background_color);
@@ -89,6 +172,9 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
 
         h1{
             text-align: center;
+            font-size: 70px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         .category_bnt{

@@ -8,7 +8,7 @@ import "../css/style.css";
     </section>
     <section class="category_list">
         <details>
-            <summary>Farver:</summary>
+            <summary>Farver</summary>
             <p>Rød</p>
             <p>Orange</p>
             <p>Gul</p>
@@ -19,7 +19,7 @@ import "../css/style.css";
             <p>Sort</p>
         </details>
         <details>
-            <summary>Type:</summary>
+            <summary>Type</summary>
             <p>Klods</p>
             <p>Plade</p>
             <p>Slope</p>
@@ -29,23 +29,41 @@ import "../css/style.css";
 </article>
 
 <style>
-
+    details p{
+        font-size: 18px;
+        padding-left: 25px; 
+    }
+    details, p:hover{
+        text-decoration: underline;
+    }
+    details, p:active{
+        text-decoration: underline;
+    }  
+    details{
+        cursor: pointer;
+        padding: 10px;
+        text-decoration: none;
+    }
     summary{
         font-family: var(--system-ui);
         color: var(--font_color);
         font-size: 25px;
+        display: block;
+    }
+    summary:hover{
+            text-decoration: underline;
+    }
+    summary:active{
+        text-decoration: underline;
     }
 
-    details{
-        cursor: pointer;
-        padding: 10px;
+    summary::after{
+            content: url('../../public/drop_down_arrow_white.svg') ;
+            margin-left: 10px;
     }
-
-    details p{
-        font-size: 18px;
-        padding-left: 25px;
+    details[open] > summary::after{
+            content: url('../../public/drop_down_arrow_white_turned.svg') ;
     }
-
     .drop_down_category_list{
         display: none;
     }
