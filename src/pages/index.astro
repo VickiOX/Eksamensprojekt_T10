@@ -5,17 +5,92 @@ import Footer from "../components/Footer.astro";
 import BuyBrickButtons from "../components/BuyBrickButtons.astro"
 import ExploreButtons from "../components/ExploreButtons.astro";
 import ChoseColorButtons from "../components/ChoseColorButtons.astro";
+import Delivery from "../components/Delivery.astro"
 import ProcentBanner from "../components/ProcentBanner.astro";
+import BuyBox from "../components/BuyBox.astro";
+import DonateSellButtons from "../components/DonateSellButtons.astro";
 ---
 
 <Mainlayout title="One Brick">
 
-<ProcentBanner header="34%" text="af danskerne sælger deres ting for at gøre noget godt for miljøet"/>
-<!-- her skriver vi alt indhold til siden ;D -->
-</Mainlayout>
+<h1>OneBrick</h1>
+<p>Giv brugte legoklodser nyt liv...</p>
 
 <BuyBrickButtons/>
 
-<style>
+<div class="grid_1-1">
+    <img class="rød" src="../Public/img-figur/legoForside1.svg" alt="Rød legoklods">
+    <img class="gul" src="../Public/img-figur/legoForside.svg" alt="Gul legoklods">
+</div>
 
+<Delivery/>
+
+<div class="procent">
+    <ProcentBanner header="34%" text="af danskerne sælger deres ting for at gøre noget godt for miljøet"/>
+</div>
+
+<div class="box1">
+    <BuyBox titel="SÆLG/DONER" header="SÆLG ELLER DONER DINE BRUGTE LEGOKLODSER" text="Giv dine brugte legoklodser nyt liv..."/>
+    <DonateSellButtons/>
+</div>
+
+<div class="box2">
+    <BuyBox titel="KØB" header="KØB BRUGTE LEGOKLODSER" text="Køb lige præcis den klods som du står og mangler...">
+    <DonateSellButtons/>
+</div>
+
+</Mainlayout>
+
+
+<style>
+    h1{
+        font-size: 77px;
+        font-weight: 900;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    p{
+        font-size: 20px;
+        font-weight: 400;
+        color: #B5B5B5;
+        margin-left: 20px;
+        margin-top: -45px;
+        margin-bottom: 50px;
+    }
+    .grid_1-1{
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+    }
+    .gul{
+        max-width: 100%;
+        width: 202.003px;
+        height: 265.243px;
+        margin-top: 0px;
+        z-index: -10;
+    }
+    .rød{
+        width: 358.964px;
+        height: 183.629px;
+        margin-right: -147px;
+        margin-top: 85px;
+        z-index: -1;
+    }
+
+    .procent {
+        margin-top: -83px;
+    }
+
+    .box1{
+        background-color: var( --background_color);
+        padding: 30px;
+        margin-top: -16px;
+    }
+
+    .box2{
+        background-color: var( --box_color);
+        padding: 30px;
+
+    }
+
+    
 </style>
