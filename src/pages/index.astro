@@ -5,19 +5,20 @@ import BuyBrickButtons from "../components/BuyBrickButtons.astro"
 import Delivery from "../components/Delivery.astro"
 import ProcentBanner from "../components/ProcentBanner.astro";
 import BuyBox from "../components/BuyBox.astro";
-import DonateSellButtons from "../components/DonateSellButtons.astro";
+import HomeExplorebuttons from "../components/HomeExplorebuttons.astro";
 import ImgBox from "../components/ImgBox.astro";
 ---
 
 <Mainlayout title="One Brick">
 
-<h1>OneBrick</h1>
-<p>Giv brugte legoklodser nyt liv...</p>
-<BuyBrickButtons/>
+<section class="forsideText">
+    <h1>OneBrick</h1>
+    <p>Giv brugte legoklodser nyt liv...</p>
+    <BuyBrickButtons/>
+</section>
 
-<div class="grid_1-1">
-    <img class="rød" src="../Public/img-figur/legoForside1.svg" alt="Rød legoklods">
-    <img class="gul" src="../Public/img-figur/legoForside.svg" alt="Gul legoklods">
+<div class="billeder">
+<img class="forside" src="../Public/img-figur/forside.svg">
 </div>
 
 <Delivery/>
@@ -33,14 +34,14 @@ import ImgBox from "../components/ImgBox.astro";
 
     <div class="box1">
         <BuyBox titel="SÆLG/DONER" header="SÆLG ELLER DONER DINE BRUGTE LEGOKLODSER" text="Giv dine brugte legoklodser nyt liv..."/>
-        <DonateSellButtons text="UDFORSK SÆLG/DONER"/>
+        <HomeExplorebuttons href_text="/donate_sell" text="UDFORSK SÆLG/DONER"/>
     </div>
 </div>
 
 <div class="sælgBox">
     <div class="box2">
-        <BuyBox titel="KØB" header="KØB BRUGTE LEGOKLODSER" text="Køb lige præcis den klods som du står og mangler...">
-        <DonateSellButtons text="UDFORSK KØB"/>
+        <BuyBox titel="KØB" header="KØB BRUGTE LEGOKLODSER" text="Køb lige præcis den klods som du står og mangler..."/>
+        <HomeExplorebuttons href_text="/productlist" text="UDFORSK KØB"/>
     </div>
 
     <div class="imgBox2">
@@ -52,36 +53,32 @@ import ImgBox from "../components/ImgBox.astro";
 
 
 <style>
+    .forsideText{
+        margin-left: 10px;
+    }
     h1{
         font-size: 77px;
         font-weight: 900;
-        margin-left: 20px;
         margin-top: 20px;
     }
     p{
         font-size: 20px;
         font-weight: 400;
         color: #B5B5B5;
-        margin-left: 20px;
         margin-top: -45px;
         margin-bottom: 50px;
     }
-    .grid_1-1{
+   
+    .billeder{
         display: flex;
-        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        margin-bottom: -40px;
+        z-index: -1;
     }
-    .gul{
-        max-width: 100%;
-        width: 202.003px;
-        height: 265.243px;
-        margin-top: 0px;
-        z-index: -10;
-    }
-    .rød{
-        width: 358.964px;
-        height: 183.629px;
-        margin-right: -147px;
-        margin-top: 85px;
+
+    .forside {
+       max-width: 100%;
+       margin-top: 20px;
         z-index: -1;
     }
     .procent {
@@ -112,38 +109,43 @@ import ImgBox from "../components/ImgBox.astro";
             margin-left: 70px;
             margin-top: -120px;
         }
-        .gul{
-        max-width: 100%;
-        width: 602.003px;
-        height: 665.243px;
-        margin-top: -120px;
-        z-index: -10;
-    }
-    .rød{
-        width: 1228.964px;
-        height: 1103.629px;
-        margin-right: -360px;
-        margin-top: -200px;
-        margin-bottom: -350px;
-        z-index: -1;
-    }
+
+        .billeder{
+            z-index: -10;
+            margin: 0;
+            margin-bottom: -145px;
+            margin-top: -150px;
+        }
+
+        .forsideText {
+            ma
+        }
+        .forside {
+            max-width: 100%;
+            width: 5000px;
+            z-index: -10;
+            margin: 0;
+        }
     .procent {
         margin-top: -135px;
     }
 
     .imgBox1, .imgBox2{
-        display: flex;
+        display: grid;
     }
     .sælgBox{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin: 0;
+        padding: 0px;
     }
     .box1{
         margin-top: 0px;
-        margin-right: 0px;
+        margin-left: 30px;
     }
     .box2{
         background-color: var(--background_color);
+        margin-left: 30px;
     }
 }
     
