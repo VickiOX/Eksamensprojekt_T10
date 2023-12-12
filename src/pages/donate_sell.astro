@@ -1,14 +1,88 @@
 ---
 import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
-import PlusMinusButtons from "../components/PlusMinusButtons.astro";
+import DonateSellButtons from "../components/DonateSellButtons.astro";
+import DonateSell_Indhold from "../components/DonateSell_Indhold.astro";
 ---
 
 <Mainlayout title="Genbrug dit lego">
 <!-- her skriver vi alt indhold til siden ;D -->
+<section> 
+    
+    <div class="flex"> 
+        <div>
+            <h2>Genbrug dit lego®</h2>  
+            <h4>Hos OneBrick kan du sælge eller donere dine klodser. Udfyld en af de 2 blanketter, og vær med til at give dit gamle lego nyt liv.</h4>
+        </div>
+        <img id="LegoBrick" src="/icons/LegoBrickRed.svg" alt="Rød lego brik"> 
+    </div>
+    <div class="flex">
+        <DonateSell_Indhold 
+        title="Doner" 
+            
+        p1="Doner dit gamle lego til legoglade børn." 
+            
+        p2="Dine gamle legoklodser doneres til børne institutioner, så andre legeglade børn kan få glæde af dem." 
+           
+        p3="Når du donere legoklodser, bliver legoklodserne vasket og sorteret. Herefter gives legoklodserne til børne institutioner og du bidrager samtidig til at gøre verden til et mere bæredygtigt sted." 
+            
+        p4="Når du donere dit Lego til OneBrick betaler du selv for fragten."> 
+                <DonateSellButtons text="DONER HER"/>
+            </DonateSell_Indhold>
 
+        <DonateSell_Indhold 
+        title="Sælg" 
+        
+        p1="Sælg dine gamle legoklodser og giv klodserne nyt liv." 
+        
+        p2=" Når du sælger dine gamle legoklodser til OneBrick, er du med til at bidrage til at gøre planeten mere bæredygtig."
+        
+        p3="Vi køber dit Lego til en fast kg pris på 60 DDK kr."
+        
+        p4="Du behøver hverken at vaske, skille klodser ad eller sortere - vi gør det hele for dig."
+        
+        p5="Når du sælger dit Lego til OneBrick, betaler vi for fragten. Du modtager først beløbet, når vi hos OneBrick har modtaget og tjekket vægten.">  
+            <DonateSellButtons text="SÆLG HER"/> 
+        </DonateSell_Indhold>
+    </div>
+    
+</section>
 </Mainlayout>
 
 <style>
+    img{
+        margin:auto;
+        display: block;
+        min-width: 200px;
+    }
+    section{
+        margin:0 20px;
+    }
 
+    h4{
+        font-weight: 300;
+        font-size: 20px;
+        max-width: 800px;
+    }
+    
+    @media screen and (min-width: 1000px){
+        img{
+            order:-1;
+            min-width: 400px;
+        }
+
+        .flex{
+        display: flex;
+        gap:40px;
+    }
+
+
+    h4{
+        font-size: 24px;
+    }
+    h2{
+        font-size: 60px;
+    }
+    }
+    
 </style>
