@@ -3,6 +3,7 @@ import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
 import ProductCard from "../components/ProductCard.astro";
 import DropCategory from "../components/DropCategory.astro";
+import PopUp from "../components/PopUp.astro";
 
 const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick",
 {
@@ -49,6 +50,7 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
                 return <ProductCard card={product}/>
                })} 
             </div>
+            <PopUp/>
         </section>
     </article>
 </Mainlayout>
