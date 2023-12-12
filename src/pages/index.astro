@@ -1,21 +1,18 @@
 ---
 import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
-import Footer from "../components/Footer.astro";
 import BuyBrickButtons from "../components/BuyBrickButtons.astro"
-import ExploreButtons from "../components/ExploreButtons.astro";
-import ChoseColorButtons from "../components/ChoseColorButtons.astro";
 import Delivery from "../components/Delivery.astro"
 import ProcentBanner from "../components/ProcentBanner.astro";
 import BuyBox from "../components/BuyBox.astro";
 import DonateSellButtons from "../components/DonateSellButtons.astro";
+import ImgBox from "../components/ImgBox.astro";
 ---
 
 <Mainlayout title="One Brick">
 
 <h1>OneBrick</h1>
 <p>Giv brugte legoklodser nyt liv...</p>
-
 <BuyBrickButtons/>
 
 <div class="grid_1-1">
@@ -29,14 +26,26 @@ import DonateSellButtons from "../components/DonateSellButtons.astro";
     <ProcentBanner header="34%" text="af danskerne sælger deres ting for at gøre noget godt for miljøet"/>
 </div>
 
-<div class="box1">
-    <BuyBox titel="SÆLG/DONER" header="SÆLG ELLER DONER DINE BRUGTE LEGOKLODSER" text="Giv dine brugte legoklodser nyt liv..."/>
-    <DonateSellButtons/>
+<div class="sælgBox">
+    <div class="imgBox1">
+        <ImgBox img="../Public/img-figur/Legobrik.svg" alt="Legoklods med 1 dut"/>
+     </div>
+
+    <div class="box1">
+        <BuyBox titel="SÆLG/DONER" header="SÆLG ELLER DONER DINE BRUGTE LEGOKLODSER" text="Giv dine brugte legoklodser nyt liv..."/>
+        <DonateSellButtons text="UDFORSK SÆLG/DONER"/>
+    </div>
 </div>
 
-<div class="box2">
-    <BuyBox titel="KØB" header="KØB BRUGTE LEGOKLODSER" text="Køb lige præcis den klods som du står og mangler...">
-    <DonateSellButtons/>
+<div class="sælgBox">
+    <div class="box2">
+        <BuyBox titel="KØB" header="KØB BRUGTE LEGOKLODSER" text="Køb lige præcis den klods som du står og mangler...">
+        <DonateSellButtons text="UDFORSK KØB"/>
+    </div>
+
+    <div class="imgBox2">
+        <ImgBox img="../Public/img-figur/klods2.svg" alt="Legoklods med 2 dutter"/>
+    </div>
 </div>
 
 </Mainlayout>
@@ -75,22 +84,67 @@ import DonateSellButtons from "../components/DonateSellButtons.astro";
         margin-top: 85px;
         z-index: -1;
     }
-
     .procent {
         margin-top: -83px;
     }
-
     .box1{
-        background-color: var( --background_color);
+        background-color: var(--background_color);
         padding: 30px;
         margin-top: -16px;
     }
 
+    .imgBox1, .imgBox2{
+        display: none;
+    }
     .box2{
-        background-color: var( --box_color);
+        background-color: var(--box_color);
         padding: 30px;
-
     }
 
+    @media (min-width: 1000px){
+        h1{
+            font-size: 180px;
+            margin-left: 50px;
+        }
+
+        p{
+            font-size: 30px;
+            margin-left: 70px;
+            margin-top: -120px;
+        }
+        .gul{
+        max-width: 100%;
+        width: 602.003px;
+        height: 665.243px;
+        margin-top: -120px;
+        z-index: -10;
+    }
+    .rød{
+        width: 1228.964px;
+        height: 1103.629px;
+        margin-right: -360px;
+        margin-top: -200px;
+        margin-bottom: -350px;
+        z-index: -1;
+    }
+    .procent {
+        margin-top: -135px;
+    }
+
+    .imgBox1, .imgBox2{
+        display: flex;
+    }
+    .sælgBox{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .box1{
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+    .box2{
+        background-color: var(--background_color);
+    }
+}
     
 </style>

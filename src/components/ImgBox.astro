@@ -1,0 +1,22 @@
+---
+const {img} = Astro.props
+---
+<div class="box">
+    <img src={img}>
+</div>
+
+<style>
+    .box{
+        background-color: var(--box_color);
+        z-index: 10;
+    }
+
+    img{
+        width: 222px;
+        height: 282px;
+        margin-left: 250px;
+        margin-right: 263px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+</style>
