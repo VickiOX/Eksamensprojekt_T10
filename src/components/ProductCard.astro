@@ -1,16 +1,17 @@
 ---
 import "../css/style.css";
 const {card} = Astro.props;
-console.log(card);
 ---
 
-<article class="card_flex">
-    <img src={card.Img} alt="Legoklods">
-    <span class="text_flex"><p class="bold">Lego type:</p> <p>{card.Type} {card.Stud}</p></span>
-    <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{card.Klodsnummer}</p></span>
-    <span class="text_flex"><p class="bold">Farve:</p> <p>{card.Farve}</p></span>
-    <button class="se_mere_bt">SE MERE</button>
-</article>
+<a class="card_link" href={`product/${card.Klodsnummer}`}>
+    <article class="card_flex">
+        <img src={card.Img} alt="Legoklods">
+        <span class="text_flex"><p class="bold">Lego type:</p> <p>{card.Type} {card.Stud}</p></span>
+        <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{card.Klodsnummer}</p></span>
+        <span class="text_flex"><p class="bold">Farve:</p> <p>{card.Farve}</p></span>
+        <button class="se_mere_bt">SE MERE</button>
+    </article>
+</a>
 
 <style>
 
@@ -18,6 +19,10 @@ console.log(card);
 .bold{
     /* font-weight: bold; */
     /* text-decoration: underline; */
+}
+
+.card_link:hover{
+    text-decoration: none;
 }
 
 .card_flex{

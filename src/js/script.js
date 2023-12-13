@@ -18,12 +18,3 @@ categoryBtn.addEventListener("click", () => {
   categoryList.classList.toggle("active");
   arrow.classList.toggle("active");
 });
-
-// Product pop op
-
-const seMereBtn = document.querySelector(".se_mere_bt");
-const popUp = document.querySelector(".pop_up_window");
-
-seMereBtn.addEventListener("click", () => {
-  popUp.classList.toggle("active");
-});
