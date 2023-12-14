@@ -1,0 +1,27 @@
+---
+import ProductCard from "./ProductCard.astro";
+const {indhold } = Astro.props;
+---
+
+<section>
+    {indhold.map (person) => <ProductCard aktiv= {person.aktiv} link = {"/personer/" + person.id} profilbillede={´/thumbs/$ 
+        {personalbar.billede}´} navn={person.navn} email={personalbar.email} dato={personalbar.created_at.slice(0,10)} />)}
+</section>
+
+<style>
+    section{
+        display: grid;
+        gap: 1em;
+        margin-bottom:1em;
+    }
+
+
+    @media screen and (min-width:600px){
+
+        section{
+            grid-template-columns: repeat(auto-fit, 350px);
+            justify-content: center;
+        }
+    }
+
+</style>

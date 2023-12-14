@@ -3,15 +3,13 @@ import "../css/style.css";
 const {card} = Astro.props;
 console.log(card);
 ---
-
 <article class="card_flex">
-    <img src={card.Img} alt="Legoklods">
-    <span class="text_flex"><p class="bold">Lego type:</p> <p>{card.Type} {card.Stud}</p></span>
-    <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{card.Klodsnummer}</p></span>
-    <span class="text_flex"><p class="bold">Farve:</p> <p>{card.Farve}</p></span>
+    <img src={card.img} alt="Legoklods">
+    <span class="text_flex"><p class="bold">Lego type:</p> <p>{card.type} {card.stud}</p></span>
+    <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{card.klodsnummer}</p></span>
+    <span class="text_flex"><p class="bold">Farve:</p> <p>{card.farve}</p></span>
     <button class="se_mere_bt">SE MERE</button>
 </article>
-
 <style>
 
 /* vi skal lige finde ud af hvilken der er pænest */

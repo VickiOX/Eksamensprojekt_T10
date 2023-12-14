@@ -5,13 +5,22 @@ import ProductCard from "../components/ProductCard.astro";
 import DropCategory from "../components/DropCategory.astro";
 import PopUp from "../components/PopUp.astro";
 
-const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick",
-{
-    method: "GET",
-    headers: {
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphbGdlYWFrY3pndnZhYnl1a3h5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIwNDYyMTMsImV4cCI6MjAxNzYyMjIxM30.whMkOHF_vj4y1xhGC_SGbzmJ7qCi71W9ouWSLbijLEE"
-    },}).then((res) => res.json());
-  
+ const url = "https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphbGdlYWFrY3pndnZhYnl1a3h5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIwNDYyMTMsImV4cCI6MjAxNzYyMjIxM30.whMkOHF_vj4y1xhGC_SGbzmJ7qCi71W9ouWSLbijLEE",
+  },
+};
+    const response = await fetch(url, options)
+    const alleProdukter = await response.json(); //jeres hedder alleProdukter
+
+    const Klodser = alleProdukter.filter((product) => product.type == "klods"); // I skriver produkt.type == "klods" osv.
+    const Plader = alleProdukter.filter((product) => product.type == "plade"); // const Plader osv.
+    const Vinduer = alleProdukter.filter((product) => product.type == "vindue");
+    const Hælndninger = alleProdukter.filter((product) => product.type == "hældning");
+    const Andet = alleProdukter.filter((product) => product.type == "andet");
+
 ---
 
 <Mainlayout title="Produkter">
@@ -20,33 +29,39 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
             <section class="search">
 
             </section>
-            <section class="category">
-                <details>
-                    <summary>Farver</summary>
-                    <p>Rød</p>
-                    <p>Orange</p>
-                    <p>Gul</p>
-                    <p>Grøn</p>
-                    <p>Blå</p>
-                    <p>Lilla</p>
-                    <p>Hvid</p>
-                    <p>Sort</p>
-                </details>
-                <details>
-                    <summary>Type</summary>
-                    <p>Klods</p>
-                    <p>Plade</p>
-                    <p>Slope</p>
-                    <p>Andet</p>
-                </details>
-            </section>
+                <section class="category">
+                    <details>
+                        <summary>Type</summary>
+                                <button class="aktivknap">Alle</button>
+                                <button>klods</button>
+                                <button>plade</button>
+                                <button>hældning</button>
+                                <button>vindue</button>
+                                <button>andet</button>
+                    </details>
+                        
+                    <details>
+                        <summary>Farver</summary>
+                        <button class="aktivknap">Alle</button>
+                        <button>Red</button>
+                        <button>White</button>
+                        <button>Yellow</button>
+                        <button>Green</button>
+                        <button>Bright Green</button>
+                        <button>Sand Green</button>
+                        <button>Black</button>
+                        <button>Dark Turquoise</button>
+                    </details>
+                </section>
+                
+                
         </section>
         <section class="product_list">
             <h1>Produkter</h1>
             <button class="category_bnt">KATEGORI LISTE <img class="drop_down_arrow" src="../../public/drop_down_arrow.svg" alt="pil icon"></button>
             <DropCategory/>
             <div class="product_grid">
-               {data.map((product)=>{
+               {alleProdukter.map((product)=>{
                 return <ProductCard card={product}/>
                })} 
             </div>
@@ -186,4 +201,31 @@ const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebr
 
 </style>
 
-<script src="../js/script.js"></script>
+<script>
+    
+  const knapper = document.querySelectorAll("button");
+  const mere = document.querySelectorAll(".mere");
+  const mereknapper = document.querySelectorAll(".mereknap");
+  const kasser = document.querySelectorAll(".type");
+
+  knapper.forEach((knap) => {
+    knap.addEventListener("click", sorter);
+  });
+
+  function sorter() {
+    document.querySelector(".aktivknap").classList.remove("aktivknap");
+    this.classList.add("aktivknap");
+    kasser.forEach((kasse) => kasse.classList.add("hide"));
+    mere.forEach((kasse) => kasse.classList.add("hide"));
+    mereknapper.forEach((knap) => knap.classList.remove("hide"));
+    const type = "." + this.textContent;
+    if (this.textContent == "Alle") {
+      kasser.forEach((kasse) => kasse.classList.remove("hide"));
+    } else {
+      document.querySelector(type).classList.remove("hide");
+      document.querySelector(type + " .mere").classList.remove("hide");
+      document.querySelector(type + " .mereknap").classList.add("hide");
+    }
+  }
+
+</script>
