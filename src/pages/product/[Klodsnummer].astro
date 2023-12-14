@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
     return data.map((product)=>{
         return {
-            params: {Klodsnummer: product.Klodsnummer},
+            params: {klodsnummer: product.klodsnummer},
             props: {product},
         };
     });
@@ -22,17 +22,17 @@ const {product} = Astro.props;
 console.log(product);
 ---
 
-<Mainlayout title={`Klodsnummer ${product.Klodsnummer}`}>
+<Mainlayout title={`Klodsnummer ${product.klodsnummer}`}>
     <div class="back_button"><HomeExplorebuttons href_text="../productlist" text="TILBAGE"/></div>
     <article class="block">
         <section class="grid_product">
             <div>
-                <img class="product_img" src={product.Img} alt="Legoklods">
+                <img class="product_img" src={product.img} alt="Legoklods">
             </div>
             <div class="flex_product">
-                <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.Type} {product.Stud}</p></span>
-                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.Klodsnummer}</p></span>
-                <span class="text_flex"><p class="bold">Farve:</p> <p>{product.Farve}</p></span>
+                <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.type} {product.stud}</p></span>
+                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.klodsnummer}</p></span>
+                <span class="text_flex"><p class="bold">Farve:</p> <p>{product.farve}</p></span>
                 <span class="text_flex"><PlusMinusButtons text="-"/><PlusMinusButtons text="+"/></span>
             </div>
         </section>

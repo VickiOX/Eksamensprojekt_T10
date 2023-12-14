@@ -7,14 +7,3 @@ burgerMenu.addEventListener("click", () => {
   burgerMenu.classList.toggle("active");
   dropDown.classList.toggle("active");
 });
-
-// Category drop down
-
-const categoryList = document.querySelector(".drop_down_category_list");
-const categoryBtn = document.querySelector(".category_bnt");
-const arrow = document.querySelector(".drop_down_arrow");
-
-categoryBtn.addEventListener("click", () => {
-  categoryList.classList.toggle("active");
-  arrow.classList.toggle("active");
-});
