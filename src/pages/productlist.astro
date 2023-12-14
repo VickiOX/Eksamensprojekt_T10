@@ -3,7 +3,6 @@ import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
 import ProductCard from "../components/ProductCard.astro";
 import DropCategory from "../components/DropCategory.astro";
-import PopUp from "../components/PopUp.astro";
 
  const url = "https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick";
 
@@ -65,7 +64,6 @@ const options = {
                 return <ProductCard card={product}/>
                })} 
             </div>
-            <PopUp/>
         </section>
     </article>
 </Mainlayout>

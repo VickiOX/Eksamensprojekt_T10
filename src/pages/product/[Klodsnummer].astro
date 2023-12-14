@@ -1,0 +1,85 @@
+---
+import Mainlayout from "../../layouts/Mainlayout.astro";
+import HomeExplorebuttons from "../../components/HomeExplorebuttons.astro";
+import PlusMinusButtons from "../../components/PlusMinusButtons.astro";
+
+export async function getStaticPaths() {
+    const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick", {
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InphbGdlYWFrY3pndnZhYnl1a3h5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDIwNDYyMTMsImV4cCI6MjAxNzYyMjIxM30.whMkOHF_vj4y1xhGC_SGbzmJ7qCi71W9ouWSLbijLEE"
+    },}).then(response => response.json());
+
+    return data.map((product)=>{
+        return {
+            params: {Klodsnummer: product.Klodsnummer},
+            props: {product},
+        };
+    });
+}
+
+const {product} = Astro.props;
+console.log(product);
+---
+
+<Mainlayout title={`Klodsnummer ${product.Klodsnummer}`}>
+    <div class="back_button"><HomeExplorebuttons href_text="../productlist" text="TILBAGE"/></div>
+    <article class="block">
+        <section class="grid_product">
+            <div>
+                <img class="product_img" src={product.Img} alt="Legoklods">
+            </div>
+            <div class="flex_product">
+                <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.Type} {product.Stud}</p></span>
+                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.Klodsnummer}</p></span>
+                <span class="text_flex"><p class="bold">Farve:</p> <p>{product.Farve}</p></span>
+                <span class="text_flex"><PlusMinusButtons text="-"/><PlusMinusButtons text="+"/></span>
+            </div>
+        </section>
+    </article>
+</Mainlayout>
+
+
+<style>
+
+.back_button{
+    margin: 50px 10px;
+}
+
+.grid_product{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+}
+
+.flex_product{
+    display: flex;
+    flex-direction: column;
+}
+
+.text_flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.block{
+    margin: 0px 50px 0px 50px;
+}
+
+.product_img{
+    width: 500px;
+}
+
+@media (min-width: 1000px){
+    .back_button{
+        margin: 50px 40px;
+    }
+
+    .grid_product{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+</style>
