@@ -14,11 +14,11 @@ const options = {
     const response = await fetch(url, options)
     const alleProdukter = await response.json(); //jeres hedder alleProdukter
 
-    const Klodser = alleProdukter.filter((product) => product.type == "klods"); // I skriver produkt.type == "klods" osv.
-    const Plader = alleProdukter.filter((product) => product.type == "plade"); // const Plader osv.
-    const Vinduer = alleProdukter.filter((product) => product.type == "vindue");
-    const Hælndninger = alleProdukter.filter((product) => product.type == "hældning");
-    const Andet = alleProdukter.filter((product) => product.type == "andet");
+    const klodser = alleProdukter.filter((product) => product.type == "klods"); // I skriver produkt.type == "klods" osv.
+    const plader = alleProdukter.filter((product) => product.type == "plade"); // const Plader osv.
+    const vinduer = alleProdukter.filter((product) => product.type == "vindue");
+    const hælndninger = alleProdukter.filter((product) => product.type == "hældning");
+    const andet = alleProdukter.filter((product) => product.type == "andet");
 
 ---
 
@@ -28,37 +28,21 @@ const options = {
             <section class="search">
 
             </section>
-                <section class="category">
-                    <details>
-                        <summary>Type</summary>
-                                <button class="aktivknap">Alle</button>
-                                <button>klods</button>
-                                <button>plade</button>
-                                <button>hældning</button>
-                                <button>vindue</button>
-                                <button>andet</button>
-                    </details>
-                        
-                    <details>
-                        <summary>Farver</summary>
-                        <button class="aktivknap">Alle</button>
-                        <button>Red</button>
-                        <button>White</button>
-                        <button>Yellow</button>
-                        <button>Green</button>
-                        <button>Bright Green</button>
-                        <button>Sand Green</button>
-                        <button>Black</button>
-                        <button>Dark Turquoise</button>
-                    </details>
-                </section>
-                
-                
+            <section class="category">
+                <details>
+                    <summary>Type</summary>
+                            <button class="aktivknap">Alle</button>
+                            <button>klods</button>
+                            <button>plade</button>
+                            <button>hældning</button>
+                            <button>vindue</button>
+                            <button>andet</button>
+                </details>
+            </section>   
         </section>
         <section class="product_list">
             <h1>Produkter</h1>
             <button class="category_bnt">KATEGORI LISTE <img class="drop_down_arrow" src="../../public/drop_down_arrow.svg" alt="pil icon"></button>
-            <DropCategory/>
             <div class="product_grid">
                {alleProdukter.map((product)=>{
                 return <ProductCard card={product}/>
