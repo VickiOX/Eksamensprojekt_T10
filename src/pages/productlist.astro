@@ -44,12 +44,14 @@ const options = {
             </section>
             <section class="category_mobile">
                 <p>Sorter efter: </p>
-                <button class="aktivknap">Alle</button>
-                <button>Klods</button>
-                <button>Plade</button>
-                <button>Hældning</button>
-                <button>Vindue</button>
-                <button>Andet</button>
+                <div class="button_flex">
+                    <button class="aktivknap">Alle</button>
+                    <button>Klods</button>
+                    <button>Plade</button>
+                    <button>Hældning</button>
+                    <button>Vindue</button>
+                    <button>Andet</button>
+                </div>
             </section>
             
             <div class="product_flex">
@@ -105,12 +107,39 @@ const options = {
     }
 
     .aktivknap{
+        background-color: var(--background_color);
+        border-color: var(--button_red);
+    }
+
+    button{
+        padding: 5px;
         background-color: var(--button_red);
+        border-radius: 3px;
+        border-color: var(--button_red);
+        color: var(--font_color);
+    }
+
+    .button_flex{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
     }
 
 
     @media (min-width: 1000px){
 
+        button{
+        padding: 15px 15px;
+        background-color: var(--background_color);
+        border-radius: 3px;
+        border-color: var(--background_color);
+        color: var(--font_color);
+    }
+
+        .aktivknap{
+            background-color: var(--box_color);
+            border-color: var(--box_color);
+        }
         .search_mobile{
             display: none;
         }
@@ -119,7 +148,8 @@ const options = {
         }
 
         .category_desktop{
-            display: block;
+            display: flex;
+            flex-direction: column;
         }
 
         .category_list{
