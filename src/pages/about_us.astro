@@ -10,7 +10,7 @@ import TextBoxAboutUs from "../components/TextBoxAboutUs.astro";
     <h2> Om Os</h2>
 
     <div class="grid_3-1">
-        <div> 
+        <div class="div_box"> 
         <p class="OmOs_Text1">
             “Jeg kan ikke huske en tid, hvor jeg ikke har leget med lego. Selv da jeg var barn, var jeg kæmpe lego-fan. Her husker jeg tydeligt, hvordan jeg samlede på Harry Potter-sættene, og hvordan hver en klods udgjorde en vigtig del af et samlet puslespil. Da jeg fandt mine gamle lego-sæt frem og begyndte at sortere i det, kom minderne pludselig tilbage.
         </p>
@@ -63,26 +63,35 @@ section {
 }
 
 
+
+
 @media screen and (min-width: 1000px){
 
     section {
-    margin: 0 30px;
+    margin: 0 120px;
     }
     #red_legomand2{
-        min-width:300px;
+        width: 530px;
+        display:flex;
+        justify-content: space-between;
     }
     .grid_3-1{
-    display: grid;
+    display: flex;
     grid-template-columns: 3fr 1fr;
+    gap: 200px;
     }
     #red_legomand1{
         display: none;
     }
     .grid_2-1{
     grid-template-columns: 1fr;
-}
-    #red_legomand2{
-        display: grid;
+    }
+    .div_box{
+        max-width: 700px;
+    }
+
+    p{
+    max-width:700px ;
     }
 }
 

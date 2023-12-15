@@ -3,6 +3,7 @@ import "../css/style.css";
 ---
 
 <div class="text_about_us_box"> 
+    <div class="text_box"> 
     <p id="text_p_1">
         Mange af os lego-fans har måske oplevet at mangle en bestemt brik, for at fuldende et lego-sæt -eller vores egen kreative løsning. Vi indså derfor, at der måtte være en billigere og mere bæredygtig løsning på, hvordan man kan købe enkeltklodser.
     </p>
@@ -10,21 +11,39 @@ import "../css/style.css";
     <p id="text_p_2">
         Vi tog derfor i efteråret 2023, initiativ til at skabe OneBrick. Her kan alle lego-entusiaster købe brugte, billige og bæredygtige legoklodser, som stort set er så gode som nye.
     </p>
+    </div>
 </div>
 
 <style>
-    .text_about_us_box{
+.text_about_us_box{
     background-color: var( --box_color);
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 30px 20px;
+  
 }
+
+.text_box{
+    display: block;
+    text-align: center;
+    margin:auto;
+}
+
 #text_p_1{
     font-weight: 100;
 }
 #text_p_2{
     font-weight: 600;
+}
+
+@media screen and (min-width: 1000px){
+    .text_box{
+    display: block;
+    text-align: center;
+    margin:auto;
+    width: 700px;
+}
+
 }
 </style>

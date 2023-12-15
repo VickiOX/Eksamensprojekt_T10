@@ -9,14 +9,14 @@ import DonateSell_Indhold from "../components/DonateSell_Indhold.astro";
 <!-- her skriver vi alt indhold til siden ;D -->
 <section> 
     
-    <div class="flex"> 
-        <div>
+    <div class="flex flex_1"> 
+        <div class="text_box">
             <h2>Genbrug dit lego®</h2>  
             <h4>Hos OneBrick kan du sælge eller donere dine klodser. Udfyld en af de 2 blanketter, og vær med til at give dit gamle lego nyt liv.</h4>
         </div>
         <img id="LegoBrick" src="/icons/LegoBrickRed.svg" alt="Rød lego brik"> 
     </div>
-    <div class="flex">
+    <div class="flex gap">
         <DonateSell_Indhold 
         title="Doner" 
             
@@ -64,16 +64,36 @@ import DonateSell_Indhold from "../components/DonateSell_Indhold.astro";
         font-size: 20px;
         max-width: 800px;
     }
+
     
     @media screen and (min-width: 1000px){
+
+        section{
+            margin: 0 120px;
+        }
         img{
             order:-1;
             min-width: 400px;
+            margin-top: 6px;
+            margin-left: 200px;
         }
 
         .flex{
         display: flex;
-        gap:40px;
+        justify-content: space-around;
+    }
+
+    .flex_1{
+        gap:140px;
+    }
+    .gap{
+        gap:60px;
+    }
+
+    .text_box{
+        gap:20px;
+        display: flex;
+        flex-direction: column;
     }
 
 
