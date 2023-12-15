@@ -1,8 +1,7 @@
 ---
 import "../css/style.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
-import ProductCard from "../components/ProductCard.astro";
-import DropCategory from "../components/DropCategory.astro";
+import ProductShelf from "../components/ProductShelf.astro";
 
  const url = "https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick";
 
@@ -18,7 +17,7 @@ const options = {
     const plader = alleProdukter.filter((product) => product.type == "plade"); // const Plader osv.
     const vinduer = alleProdukter.filter((product) => product.type == "vindue");
     const hælndninger = alleProdukter.filter((product) => product.type == "hældning");
-    const andet = alleProdukter.filter((product) => product.type == "andet");
+    const andett = alleProdukter.filter((product) => product.type == "andet");
 
 ---
 
@@ -26,27 +25,52 @@ const options = {
     <article class="grid_1">
         <section class="category_list">
             <section class="search">
-
+                <input type="text" placeholder="Søg..">
             </section>
-            <section class="category">
-                <details>
-                    <summary>Type</summary>
-                            <button class="aktivknap">Alle</button>
-                            <button>klods</button>
-                            <button>plade</button>
-                            <button>hældning</button>
-                            <button>vindue</button>
-                            <button>andet</button>
-                </details>
+            <section class="category_desktop">
+                <p>Sorter efter: </p>
+                <button class="aktivknap">Alle</button>
+                <button>Klods</button>
+                <button>Plade</button>
+                <button>Hældning</button>
+                <button>Vindue</button>
+                <button>Andet</button>
             </section>   
         </section>
         <section class="product_list">
             <h1>Produkter</h1>
-            <button class="category_bnt">KATEGORI LISTE <img class="drop_down_arrow" src="../../public/drop_down_arrow.svg" alt="pil icon"></button>
-            <div class="product_grid">
-               {alleProdukter.map((product)=>{
-                return <ProductCard card={product}/>
-               })} 
+            <section class="search_mobile">
+                <input type="text" placeholder="Søg..">
+            </section>
+            <section class="category_mobile">
+                <p>Sorter efter: </p>
+                <div class="button_flex">
+                    <button class="aktivknap">Alle</button>
+                    <button>Klods</button>
+                    <button>Plade</button>
+                    <button>Hældning</button>
+                    <button>Vindue</button>
+                    <button>Andet</button>
+                </div>
+            </section>
+            
+            <div class="product_flex">
+                <div class="type klods">
+                    <ProductShelf indhold={klodser} />
+                </div>
+                <div class="type plade">
+                    <ProductShelf indhold={plader} />
+                </div>
+                <div class="type vindue">
+                    <ProductShelf indhold={vinduer} />
+                </div>
+                <div class="type hældning">
+                    <ProductShelf indhold={hælndninger} />
+                </div>
+                <div class="type andet">
+                    <ProductShelf indhold={andett} />
+                </div>
+
             </div>
         </section>
     </article>
@@ -54,18 +78,25 @@ const options = {
 
 <style>
 
+    input {
+        padding: 10px 10px;
+        background-color: var(--footer_color);
+        border-color: var(--footer_color);
+        color: var(--font_color);
+        margin: 10px 0px;
+        font-size: 20px;
+        width: 300px;
+        border-radius: 3px;
+    }
     .grid_1{
         display: grid;
         grid-template-columns: 1fr;
     }
 
-    .product_grid{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-items: center;
-    }
-    .category_list{
-        display: none;
+    .product_flex{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--box_color);
     }
     .product_list{
         background-color: var(--background_color);
@@ -76,82 +107,69 @@ const options = {
         font-size: 60px;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 10px;
     }
 
-    .drop_down_arrow.active {
-        rotate: 90deg;
+    .category_list{
+        display:none;
     }
 
-    .category_bnt{
+    .hide{
+        display: none;
+    }
+
+    .aktivknap{
+            background-color: var(--box_color);
+            border-color: var(--box_color);
+        }
+
+    button{
+        padding: 8px;
+        background-color: var(--background_color);
+        border-radius: 3px;
+        border-color: var(--background_color);
+        color: var(--font_color);
+    }
+
+    .button_flex{
         display: flex;
         justify-content: center;
-        align-items: center;
         gap: 10px;
-        height: 35px;
-        width: 150px;
-        margin-left: 11px;
-        color:var(--fotter_color);
-        background-color: var(--button_yellow);
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 3px;
-        border:none;
     }
 
-    .category_bnt:hover{
-        color:var(--font_color);
-        background-color: var(--footer_color);
-        border:3px solid var(--button_yellow);
-    }
-
-    .category_bnt:active{
-        color:var(--font_color);
-        background-color: var(--footer_color);
-        border:3px solid var(--button_yellow);
-    }
 
     @media (min-width: 1000px){
-        details, p{
-            font-size: 18px;
-            padding-left: 25px;
-        }
 
-        details, p:hover{
-            text-decoration: underline;
-        }
-
-        details, p:active{
-            text-decoration: underline;
-        }
-        details{
-            cursor: pointer;
-            padding: 10px;
-            text-decoration: none;
-        }
-        summary{
-            font-family: var(--system-ui);
+        input {
+            padding: 10px 10px;
+            background-color: var(--footer_color);
+            border-color: var(--footer_color);
             color: var(--font_color);
-            font-size: 25px;
-            display: block;
-        }    
-        
-        summary:hover{
-            text-decoration: underline;
+            margin: 10px 0px;
+            font-size: 20px;
+            width: 200px;
+            border-radius: 3px;
+        }
+        button{
+            padding: 15px 15px;
+            background-color: var(--background_color);
+            border-radius: 3px;
+            border-color: var(--background_color);
+            color: var(--font_color);
         }
 
-        summary:active{
-            text-decoration: underline;
+       
+        .search_mobile{
+            display: none;
         }
-        summary::after{
-            content: url('../../public/drop_down_arrow_white.svg') ;
-            margin-left: 10px;
+        .category_mobile{
+            display: none;
         }
 
-        details[open] > summary::after{
-            content: url('../../public/drop_down_arrow_white_turned.svg') ;
-            
+        .category_desktop{
+            display: flex;
+            flex-direction: column;
         }
+
         .category_list{
             display: block;
             background-color: var(--background_color);
@@ -165,10 +183,6 @@ const options = {
             grid-template-columns: 1fr 5fr;
         }
 
-        .product_grid{
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
         h1{
             text-align: center;
             font-size: 70px;
@@ -176,9 +190,6 @@ const options = {
             margin-bottom: 20px;
         }
 
-        .category_bnt{
-            display: none;
-        }
     }
 
 </style>
@@ -186,8 +197,6 @@ const options = {
 <script>
     
   const knapper = document.querySelectorAll("button");
-  const mere = document.querySelectorAll(".mere");
-  const mereknapper = document.querySelectorAll(".mereknap");
   const kasser = document.querySelectorAll(".type");
 
   knapper.forEach((knap) => {
@@ -198,15 +207,12 @@ const options = {
     document.querySelector(".aktivknap").classList.remove("aktivknap");
     this.classList.add("aktivknap");
     kasser.forEach((kasse) => kasse.classList.add("hide"));
-    mere.forEach((kasse) => kasse.classList.add("hide"));
-    mereknapper.forEach((knap) => knap.classList.remove("hide"));
     const type = "." + this.textContent;
     if (this.textContent == "Alle") {
       kasser.forEach((kasse) => kasse.classList.remove("hide"));
-    } else {
+    } 
+    else {
       document.querySelector(type).classList.remove("hide");
-      document.querySelector(type + " .mere").classList.remove("hide");
-      document.querySelector(type + " .mereknap").classList.add("hide");
     }
   }
 

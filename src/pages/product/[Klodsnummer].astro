@@ -1,7 +1,8 @@
 ---
+import "../../css/style.css";
 import Mainlayout from "../../layouts/Mainlayout.astro";
 import HomeExplorebuttons from "../../components/HomeExplorebuttons.astro";
-import PlusMinusButtons from "../../components/PlusMinusButtons.astro";
+import AddToBasket from "../../components/addToBasket.astro";
 
 export async function getStaticPaths() {
     const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick", {
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 
     return data.map((product)=>{
         return {
-            params: {Klodsnummer: product.Klodsnummer},
+            params: {klodsnummer: product.klodsnummer},
             props: {product},
         };
     });
@@ -22,18 +23,20 @@ const {product} = Astro.props;
 console.log(product);
 ---
 
-<Mainlayout title={`Klodsnummer ${product.Klodsnummer}`}>
+<Mainlayout title={`Klodsnummer ${product.klodsnummer}`}>
     <div class="back_button"><HomeExplorebuttons href_text="../productlist" text="TILBAGE"/></div>
     <article class="block">
         <section class="grid_product">
             <div>
-                <img class="product_img" src={product.Img} alt="Legoklods">
+                <img class="product_img" src={product.img} alt="Legoklods">
             </div>
             <div class="flex_product">
-                <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.Type} {product.Stud}</p></span>
-                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.Klodsnummer}</p></span>
-                <span class="text_flex"><p class="bold">Farve:</p> <p>{product.Farve}</p></span>
-                <span class="text_flex"><PlusMinusButtons text="-"/><PlusMinusButtons text="+"/></span>
+                <span class="text_flex"><p class="bold">Pris:</p> <p>{product.pris}</p></span>
+                <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.type} {product.stud}</p></span>
+                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.klodsnummer}</p></span>
+                <span class="text_flex"><p class="bold">Farve:</p> <p>{product.farve}</p></span>
+                <p>Tilføj til kurv:</p>
+                <div class="add_to_basket"><AddToBasket/></div>
             </div>
         </section>
     </article>
@@ -41,7 +44,14 @@ console.log(product);
 
 
 <style>
-
+.add_to_basket{
+    margin-top: 20px;
+}
+.add_kurv_flex{
+    display: flex;
+    justify-content: center;
+    gap: 20px
+}
 .back_button{
     margin: 50px 10px;
 }
@@ -50,12 +60,14 @@ console.log(product);
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-
+    margin: 75px 0px ;
+    gap: 20px;
 }
 
 .flex_product{
     display: flex;
     flex-direction: column;
+    width: 300px;
 }
 
 .text_flex{
@@ -68,10 +80,14 @@ console.log(product);
 }
 
 .product_img{
-    width: 500px;
+    width: 200px;
 }
 
 @media (min-width: 1000px){
+
+    .product_img{
+        width: 300px;
+    }
     .back_button{
         margin: 50px 40px;
     }
@@ -79,7 +95,10 @@ console.log(product);
     .grid_product{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin: 100px 0px ;
+        gap: 0px;
     }
 }
 
 </style>
+

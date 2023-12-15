@@ -1,26 +1,27 @@
 ---
 import ProductCard from "./ProductCard.astro";
-const {indhold } = Astro.props;
+const {indhold} = Astro.props;
+
 ---
 
 <section>
-    {indhold.map (person) => <ProductCard aktiv= {person.aktiv} link = {"/personer/" + person.id} profilbillede={´/thumbs/$ 
-        {personalbar.billede}´} navn={person.navn} email={personalbar.email} dato={personalbar.created_at.slice(0,10)} />)}
+    {indhold.map ((product) => <ProductCard klodsnummer= {product.klodsnummer} type = {product.type} farve ={product.farve}
+    stud = {product.stud} img = {product.img} pris = {product.pris} />)};
 </section>
+
 
 <style>
     section{
         display: grid;
-        gap: 1em;
-        margin-bottom:1em;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
     }
 
 
-    @media screen and (min-width:600px){
+    @media screen and (min-width:800px){
 
         section{
-            grid-template-columns: repeat(auto-fit, 350px);
-            justify-content: center;
+            grid-template-columns: 1fr 1fr 1fr;
         }
     }
 

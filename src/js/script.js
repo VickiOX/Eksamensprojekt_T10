@@ -8,13 +8,23 @@ burgerMenu.addEventListener("click", () => {
   dropDown.classList.toggle("active");
 });
 
-// Category drop down
+// Kurv opdate
 
-const categoryList = document.querySelector(".drop_down_category_list");
-const categoryBtn = document.querySelector(".category_bnt");
-const arrow = document.querySelector(".drop_down_arrow");
+const minusBtn = document.querySelector("#minus");
+const plusBtn = document.querySelector("#plus");
 
-categoryBtn.addEventListener("click", () => {
-  categoryList.classList.toggle("active");
-  arrow.classList.toggle("active");
-});
+let products = 0;
+
+minusBtn.addEventListener("click", minusNumber);
+
+plusBtn.addEventListener("click", plusNumber);
+
+function minusNumber() {
+  products = products - 1;
+  document.querySelector("#number").textContent = products;
+}
+
+function plusNumber() {
+  products = products + 1;
+  document.querySelector("#number").textContent = products;
+}
