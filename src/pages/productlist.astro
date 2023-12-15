@@ -46,11 +46,11 @@ const options = {
                 <p>Sorter efter: </p>
                 <div class="button_flex">
                     <button class="aktivknap">Alle</button>
-                    <button>Klods</button>
-                    <button>Plade</button>
-                    <button>Hældning</button>
-                    <button>Vindue</button>
-                    <button>Andet</button>
+                    <button>klods</button>
+                    <button>plade</button>
+                    <button>hældning</button>
+                    <button>vindue</button>
+                    <button>andet</button>
                 </div>
             </section>
             
@@ -212,6 +212,7 @@ const options = {
       kasser.forEach((kasse) => kasse.classList.remove("hide"));
     } 
     else {
+        console.log(type);
       document.querySelector(type).classList.remove("hide");
     }
   }
