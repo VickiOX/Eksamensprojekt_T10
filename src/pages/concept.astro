@@ -10,11 +10,20 @@ import FN from "../components/FN.astro";
 <Mainlayout title="Vores koncept">
 
     <h1>Vores koncept</h1>
-    <p>Hos OneBrick sælger vi brugte legoklodser, som andre lego-entusiaster har haft glæde af. Vi tilbyder løsdele, plader og minifigurer samt mulighed for donation og salg af dine brugte legoklodser. Dette alt sammen, for at bidrage til et mere bæredygtigt samfund.</p>
 
-    <ConceptGrid/>
+ <div class="grid_1-1">
+    <div class="paragraf">
+        <p class="p1">Hos OneBrick sælger vi brugte legoklodser, som andre lego-entusiaster har haft glæde af. Vi tilbyder løsdele, plader og minifigurer samt mulighed for donation og salg af dine brugte legoklodser. Dette alt sammen, for at bidrage til et mere bæredygtigt samfund.</p>
 
-    <p class="paragraf-3">Vi mener at vores fornemmeste opgave er at give brugte legoklodser et nyt liv, uden at dette skal gå på kompromis med kvaliteten af klodsen.</p>
+        <p class="p2">Vi mener at vores fornemmeste opgave er at give brugte legoklodser et nyt liv, uden at dette skal gå på kompromis med kvaliteten af klodsen.</p>
+
+        <p class="p3">Ideen til OneBrik er skabt ud fra en vision om, at legoklodser skal være en allemandseje. Ud fra denne vision skabte vi et bæredygtigt koncept, hvor legoklodsens cyklus er i fokus. </p>
+    </div>
+
+    <div>
+        <ConceptGrid/>
+    </div>  
+</div>
 
     <Process img="../Public/icons/vask.svg" alt="Vask legoklods" header="1. Vask" text="Legoklodsen bliver vasket i neutral sæbe, eddike og vand."/>
     <Process img="../Public/icons/tørring.svg" alt="Tør legoklods" header="2. Tørring" text="Legoklodsen bliver lagt til tørring i et tørrerum."/>
@@ -31,14 +40,30 @@ import FN from "../components/FN.astro";
 </Mainlayout>
 
 <style>
- 
+  .grid_1-1{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 5px; 
+    }
      h1, h2, p{
             font-family: var(--system-ui); 
             margin: 20px;
             color: var( --font_color);
         }
-    .paragraf-3 {
+    .paragraf {
+        width: 200px
+    }
+
+    .p1, .p3 {
+        width: 300px;
+    }
+    .p1{
         margin-top: -10px;
+    }
+
+    .p2 {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     h2{
@@ -48,6 +73,18 @@ import FN from "../components/FN.astro";
     }
 
     @media (min-width: 1000px){
+        .grid_1-1{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 50px; 
+    }
+
+    .p1, .p2, .p3 {
+        width: 700px;
+    }
+        .paragraf {
+        width: 700px
+    }
         h1, h2, p{
             font-size: 22px;
         }
@@ -57,18 +94,6 @@ import FN from "../components/FN.astro";
         margin-left: 70px;
         margin-top: 50px;
     }
-    p{
-        margin-left: 70px;
-        margin-right: 700px;
-        margin-bottom: -40px;
-        margin-top: 80px;
-    }
-    .paragraf-3 {
-        margin-top: -695px;
-        margin-bottom: 120px;
-        margin-right: 700px;
-    }
-
     h2{
         font-size: 60px;
         margin-top: 50px;
