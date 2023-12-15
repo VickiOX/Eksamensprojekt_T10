@@ -96,6 +96,7 @@ const options = {
     .product_flex{
         display: flex;
         flex-direction: column;
+        background-color: var(--box_color);
     }
     .product_list{
         background-color: var(--background_color);
@@ -117,15 +118,15 @@ const options = {
     }
 
     .aktivknap{
-        background-color: var(--background_color);
-        border-color: var(--button_red);
-    }
+            background-color: var(--box_color);
+            border-color: var(--box_color);
+        }
 
     button{
-        padding: 5px;
-        background-color: var(--button_red);
+        padding: 8px;
+        background-color: var(--background_color);
         border-radius: 3px;
-        border-color: var(--button_red);
+        border-color: var(--background_color);
         color: var(--font_color);
     }
 
@@ -139,27 +140,24 @@ const options = {
     @media (min-width: 1000px){
 
         input {
-        padding: 10px 10px;
-        background-color: var(--footer_color);
-        border-color: var(--footer_color);
-        color: var(--font_color);
-        margin: 10px 0px;
-        font-size: 20px;
-        width: 200px;
-        border-radius: 3px;
-    }
-        button{
-        padding: 15px 15px;
-        background-color: var(--background_color);
-        border-radius: 3px;
-        border-color: var(--background_color);
-        color: var(--font_color);
-    }
-
-        .aktivknap{
-            background-color: var(--box_color);
-            border-color: var(--box_color);
+            padding: 10px 10px;
+            background-color: var(--footer_color);
+            border-color: var(--footer_color);
+            color: var(--font_color);
+            margin: 10px 0px;
+            font-size: 20px;
+            width: 200px;
+            border-radius: 3px;
         }
+        button{
+            padding: 15px 15px;
+            background-color: var(--background_color);
+            border-radius: 3px;
+            border-color: var(--background_color);
+            color: var(--font_color);
+        }
+
+       
         .search_mobile{
             display: none;
         }

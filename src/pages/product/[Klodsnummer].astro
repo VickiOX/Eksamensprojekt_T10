@@ -1,7 +1,8 @@
 ---
+import "../../css/style.css";
 import Mainlayout from "../../layouts/Mainlayout.astro";
 import HomeExplorebuttons from "../../components/HomeExplorebuttons.astro";
-import PlusMinusButtons from "../../components/PlusMinusButtons.astro";
+import AddToBasket from "../../components/addToBasket.astro";
 
 export async function getStaticPaths() {
     const data = await fetch("https://zalgeaakczgvvabyukxy.supabase.co/rest/v1/onebrick", {
@@ -30,10 +31,12 @@ console.log(product);
                 <img class="product_img" src={product.img} alt="Legoklods">
             </div>
             <div class="flex_product">
+                <span class="text_flex"><p class="bold">Pris:</p> <p>{product.pris}</p></span>
                 <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.type} {product.stud}</p></span>
                 <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.klodsnummer}</p></span>
                 <span class="text_flex"><p class="bold">Farve:</p> <p>{product.farve}</p></span>
-                <span class="text_flex"><PlusMinusButtons text="-"/><PlusMinusButtons text="+"/></span>
+                <p>Tilføj til kurv:</p>
+                <div class="add_to_basket"><AddToBasket/></div>
             </div>
         </section>
     </article>
@@ -41,7 +44,14 @@ console.log(product);
 
 
 <style>
-
+.add_to_basket{
+    margin-top: 20px;
+}
+.add_kurv_flex{
+    display: flex;
+    justify-content: center;
+    gap: 20px
+}
 .back_button{
     margin: 50px 10px;
 }
@@ -50,12 +60,14 @@ console.log(product);
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-
+    margin: 75px 0px ;
+    gap: 20px;
 }
 
 .flex_product{
     display: flex;
     flex-direction: column;
+    width: 300px;
 }
 
 .text_flex{
@@ -68,10 +80,14 @@ console.log(product);
 }
 
 .product_img{
-    width: 500px;
+    width: 300px;
 }
 
 @media (min-width: 1000px){
+
+    .product_img{
+        width: 500px;
+    }
     .back_button{
         margin: 50px 40px;
     }
@@ -79,7 +95,10 @@ console.log(product);
     .grid_product{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin: 100px 0px ;
+        gap: 0px;
     }
 }
 
 </style>
+

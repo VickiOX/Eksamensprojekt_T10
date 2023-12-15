@@ -3,12 +3,11 @@ import "../css/style.css";
 ---
 
 <article class="header_nav">
-    <img class="logo_mobile" src="../../public/logo_mobile_version.svg" alt="One Brick mobile logo">
     <a href="/"><img class="logo_desk" src="../../public/logo_desk_version.svg" alt="One Brick computer logo"></a>
-    <a href="/productlist">PRODUKTER</a>
-    <a href="/donate_sell">DONER/SÆLG</a>
-    <a href="/concept">VORES KONCEPT</a>
-    <a href="/about_us">OM OS</a>
+    <a class="nav_link" href="/productlist">PRODUKTER</a>
+    <a class="nav_link" href="/donate_sell">DONER/SÆLG</a>
+    <a class="nav_link" href="/concept">VORES KONCEPT</a>
+    <a class="nav_link" href="/about_us">OM OS</a>
     <div class="burger_and_basket">
         <img class="kurv" src="../../public/kurv.svg" alt="kurv icon">
         <div class="burger_menu_icon">
@@ -29,7 +28,7 @@ import "../css/style.css";
     gap: 20px;
 }
 .logo_desk{
-    display: none;
+    height: 40px;
 }
 .header_nav{
     display: flex;
@@ -39,7 +38,7 @@ import "../css/style.css";
     padding: 10px 10px 10px 10px;
 }
 
-a{
+.nav_link{
     display: none;
 }
 
@@ -73,22 +72,23 @@ a{
 
 @media (min-width: 1000px){
 
+    .logo_desk{
+    height: 100%;
+}
     .kurv{
     width: 50px;
 }
     .header_nav{
         padding: 10px 40px 10px 40px;
+        justify-content: space-between;
+        a
     }
-    .logo_desk{
-        display: block;
-    }
-    .logo_mobile{
-        display: none;
-    }
+    
     .burger_menu_icon{
         display: none;
     }
-    a{
+    
+    .nav_link{
         display:block;
     }
 

@@ -1,0 +1,25 @@
+---
+import "../css/style.css";
+import PlusMinusButtons from "../components/PlusMinusButtons.astro";
+---
+
+<span><div class="minus"><PlusMinusButtons text="-"/></div><div id="number"></div><div class="plus"><PlusMinusButtons text="+"/></div></span>
+
+<style>
+
+span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#number{
+    color: var(--font_color);
+    font-family: var(--system-ui);
+    font-size: 35px;
+}
+
+</style>
+
+<script src="../js/script.js"></script>
