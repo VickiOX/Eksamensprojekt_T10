@@ -10,22 +10,21 @@ burgerMenu.addEventListener("click", () => {
 
 // Kurv opdate
 
-const plusBtn = document.querySelector(".plus");
-const minusBtn = document.querySelector(".minus");
+const minusBtn = document.querySelector("#minus");
+const plusBtn = document.querySelector("#plus");
 
 let products = 0;
 
-document.querySelector("#number").textContent = products;
+minusBtn.addEventListener("click", minusNumber);
 
-plusBtn.addEventListener("click", plusProduct);
+plusBtn.addEventListener("click", plusNumber);
 
-function plusProduct() {
-  products = products + 1;
-  return products;
+function minusNumber() {
+  products = products - 1;
+  document.querySelector("#number").textContent = products;
 }
 
-// minusBtn.addEventListener("click", minusProduct);
-
-// function minusProduct() {
-//   products = products - 1;
-// }
+function plusNumber() {
+  products = products + 1;
+  document.querySelector("#number").textContent = products;
+}
