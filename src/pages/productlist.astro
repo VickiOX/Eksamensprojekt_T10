@@ -25,7 +25,7 @@ const options = {
     <article class="grid_1">
         <section class="category_list">
             <section class="search">
-
+                <input type="text" placeholder="Søg..">
             </section>
             <section class="category_desktop">
                 <p>Sorter efter: </p>
@@ -40,7 +40,7 @@ const options = {
         <section class="product_list">
             <h1>Produkter</h1>
             <section class="search_mobile">
-
+                <input type="text" placeholder="Søg..">
             </section>
             <section class="category_mobile">
                 <p>Sorter efter: </p>
@@ -77,6 +77,17 @@ const options = {
 </Mainlayout>
 
 <style>
+
+    input {
+        padding: 10px 10px;
+        background-color: var(--footer_color);
+        border-color: var(--footer_color);
+        color: var(--font_color);
+        margin: 10px 0px;
+        font-size: 20px;
+        width: 300px;
+        border-radius: 3px;
+    }
     .grid_1{
         display: grid;
         grid-template-columns: 1fr;
@@ -95,7 +106,6 @@ const options = {
         font-size: 60px;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 10px;
     }
 
     .category_list{
@@ -128,6 +138,16 @@ const options = {
 
     @media (min-width: 1000px){
 
+        input {
+        padding: 10px 10px;
+        background-color: var(--footer_color);
+        border-color: var(--footer_color);
+        color: var(--font_color);
+        margin: 10px 0px;
+        font-size: 20px;
+        width: 200px;
+        border-radius: 3px;
+    }
         button{
         padding: 15px 15px;
         background-color: var(--background_color);
