@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     return data.map((product)=>{
         return {
             params: {klodsnummer: product.klodsnummer},
-            props: {ProductData: product}, //måske lave props: {MyData: product}, og benyt det i stedet for? har du gjort npm run build?
+            props: {ProductData: product}, 
         };
     });
 }
@@ -35,7 +35,7 @@ console.log(ProductData);
                 <span class="text_flex"><p class="bold">Lego type:</p> <p>{ProductData.type} {ProductData.stud}</p></span>
                 <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{ProductData.klodsnummer}</p></span>
                 <span class="text_flex"><p class="bold">Farve:</p> <p>{ProductData.farve}</p></span>
-                <p>Tilføj til kurv:</p>
+                <p class="bold">Tilføj til kurv:</p>
                 <div class="add_to_basket"><AddToBasket/></div>
             </div>
         </section>
@@ -44,6 +44,9 @@ console.log(ProductData);
 
 
 <style>
+    .bold{
+    font-weight: bold;
+}
 .add_to_basket{
     margin-top: 20px;
 }
