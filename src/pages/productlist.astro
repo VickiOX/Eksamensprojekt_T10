@@ -11,10 +11,10 @@ const options = {
   },
 };
     const response = await fetch(url, options)
-    const alleProdukter = await response.json(); //jeres hedder alleProdukter
+    const alleProdukter = await response.json(); 
 
-    const klodser = alleProdukter.filter((product) => product.type == "klods"); // I skriver produkt.type == "klods" osv.
-    const plader = alleProdukter.filter((product) => product.type == "plade"); // const Plader osv.
+    const klodser = alleProdukter.filter((product) => product.type == "klods"); 
+    const plader = alleProdukter.filter((product) => product.type == "plade"); 
     const vinduer = alleProdukter.filter((product) => product.type == "vindue");
     const hælndninger = alleProdukter.filter((product) => product.type == "hældning");
     const andett = alleProdukter.filter((product) => product.type == "andet");
@@ -212,7 +212,6 @@ const options = {
       kasser.forEach((kasse) => kasse.classList.remove("hide"));
     } 
     else {
-        console.log(type);
       document.querySelector(type).classList.remove("hide");
     }
   }

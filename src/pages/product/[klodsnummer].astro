@@ -14,27 +14,27 @@ export async function getStaticPaths() {
     return data.map((product)=>{
         return {
             params: {klodsnummer: product.klodsnummer},
-            props: {product},
+            props: {ProductData: product}, //måske lave props: {MyData: product}, og benyt det i stedet for? har du gjort npm run build?
         };
     });
 }
 
-const {product} = Astro.props;
-console.log(product);
+const {ProductData} = Astro.props;
+console.log(ProductData);
 ---
 
-<Mainlayout title={`klodsnummer ${product.klodsnummer}`}>
+<Mainlayout title={`klodsnummer ${ProductData.klodsnummer}`}>
     <div class="back_button"><HomeExplorebuttons href_text="../productlist" text="TILBAGE"/></div>
     <article class="block">
         <section class="grid_product">
             <div>
-                <img class="product_img" src={product.img} alt="Legoklods">
+                <img class="product_img" src={ProductData.img} alt="Legoklods">
             </div>
             <div class="flex_product">
-                <span class="text_flex"><p class="bold">Pris:</p> <p>{product.pris}</p></span>
-                <span class="text_flex"><p class="bold">Lego type:</p> <p>{product.type} {product.stud}</p></span>
-                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{product.klodsnummer}</p></span>
-                <span class="text_flex"><p class="bold">Farve:</p> <p>{product.farve}</p></span>
+                <span class="text_flex"><p class="bold">Pris:</p> <p>{ProductData.pris}</p></span>
+                <span class="text_flex"><p class="bold">Lego type:</p> <p>{ProductData.type} {ProductData.stud}</p></span>
+                <span class="text_flex"><p class="bold">Klodsnummer:</p> <p>{ProductData.klodsnummer}</p></span>
+                <span class="text_flex"><p class="bold">Farve:</p> <p>{ProductData.farve}</p></span>
                 <p>Tilføj til kurv:</p>
                 <div class="add_to_basket"><AddToBasket/></div>
             </div>

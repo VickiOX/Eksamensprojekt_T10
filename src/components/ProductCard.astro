@@ -8,7 +8,7 @@ const {img} = Astro.props;
 const {pris} = Astro.props;
 ---
 
-<a class="card_link" href={`product/${klodsnummer}`}>
+<a class="card_link" href={`product/${klodsnummer}`}> <!--mangler {`product/${product.klodsnummer}`}?-->
     <article class="card_flex">
         <img src={img} alt="Legoklods">
         <span class="text_flex"><p class="bold">Pris:</p> <p>{pris}</p></span>
