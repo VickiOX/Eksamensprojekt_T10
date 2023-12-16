@@ -28,7 +28,7 @@ const options = {
                 <input type="text" placeholder="Søg..">
             </section>
             <section class="category_desktop">
-                <p>Sorter efter: </p>
+                <p class="sorter">Sorter efter: </p>
                 <button class="aktivknap">Alle</button>
                 <button>klods</button>
                 <button>plade</button>
@@ -38,7 +38,7 @@ const options = {
             </section>   
         </section>
         <section class="product_list">
-            <h1>Produkter</h1>
+            <h2>Produkter</h2>
             <section class="search_mobile">
                 <input type="text" placeholder="Søg..">
             </section>
@@ -102,10 +102,10 @@ const options = {
         background-color: var(--background_color);
     }
 
-    h1{
-        text-align: start;
+    h2{
+        text-align: center;
         font-size: 60px;
-        margin-top: 10px;
+        margin-top: 80px;
         margin-bottom: 20px;
     }
 
@@ -138,7 +138,9 @@ const options = {
 
 
     @media (min-width: 1000px){
-
+        .sorter{
+            margin-left:10px;
+        }
         input {
             padding: 10px 10px;
             background-color: var(--footer_color);

@@ -35,6 +35,9 @@ h2 {
   margin: 0;
   padding: 6px 0 0 0;
 }
+h3{
+  font-size: 60px;
+}
 
 a {
   color: var(--font_color);
@@ -68,6 +71,6 @@ button {
     font-size: 90px;
   }
   p{
-    font-size: 16px;
+    font-size: 20px;
   }
 }

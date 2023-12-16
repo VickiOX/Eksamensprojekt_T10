@@ -2,51 +2,62 @@
 const {header, text} = Astro.props;
 ---
 <div class="banner">
-    <h1>{header}</h1>
+    <h2>{header}</h2>
+    <div class="text_position"> 
     <p>{text}</p>
+    </div>
 </div>
 
 <style>
     .banner{
         background: var(--Footer, #151513);
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height:200px;
+        position: relative;
+        z-index:1;
     }
 
     p{
-        font-family: var(--system-ui);
-        color: var( --font_color);
-        font-size: 16px;
         font-weight: 200;
-        margin-left: 155px;
-        margin-top: -140px;
-        padding-right: 35px;
-        padding-bottom: 40px;
+        max-width: 600px;
+        position: absolute;
+        bottom: 10px;
+        padding-right: 20px;
     }
 
-    h1{
+    h2{
         color: var(--BACKGROUND, #242520);
-        font-family: var(--system-ui);
         font-size: 124px;
         font-weight: 900;
-        margin-left: 40px;
-        padding-top: 20px;
+        text-align: center;
+
     }
-
+    .text_position{
+        display: flex;
+        justify-content: center;
+        margin-left: 200px;
+    }
     @media (min-width: 1000px){
-        .banner{
-            padding-bottom: 10px;
-        }
-        h1{
+     
+        h2{
             font-size: 200px;
-            margin-left: 400px;
-            padding-top: 40px;
         }
-
         p{ 
             font-size: 30px;
-            margin-left: 600px;
-            padding-right: 300px;
-            margin-top: -220px;
+            bottom: 10px;
         }
+
+        .text_position{
+        display: flex;
+        justify-content: center;
+        margin-left: 500px;
+    }
+
+    .banner{
+        height:330px;
+    }
     }
 
 </style>
