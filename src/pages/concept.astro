@@ -8,7 +8,7 @@ import FN from "../components/FN.astro";
 ---
 
 <Mainlayout title="Vores koncept">
-
+<section> 
     <h2>Vores koncept</h2>
 
  <div class="grid_1-1">
@@ -24,34 +24,43 @@ import FN from "../components/FN.astro";
         <ConceptGrid/>
     </div>  
 </div>
-
+</section>
+<section> 
     <Process img="/icons/vask.svg" alt="Vask legoklods" header="1. Vask" text="Legoklodsen bliver vasket i neutral sæbe, eddike og vand."/>
     <Process img="/icons/tørring.svg" alt="Tør legoklods" header="2. Tørring" text="Legoklodsen bliver lagt til tørring i et tørrerum."/>
     <Process img="/icons/sortering.svg" alt="Sorter legoklods" header="3. Sortering" text="Legoklodsen sorteres efter ønsket kvalitet."/>
     <Process img="/icons/pakning.svg" alt="Pak legoklods" header="4. Pakning" text="Legoklodsen pakkes og sendes af sted til forbrugeren."/>
-
+</section>
     <ProcentBanner header="51%" text="Mener at gode genbrugsvare spiller en vigtig rolle for at skabe et bæredygtigt samfund"/>
-
+<section>
     <h2 class="FN_text">FN verdensmål</h2>
     <FN img="/img-figur/fn5.webp" alt="FN Verdensmål 5" text="Vi sikrer ligestilling mellem kønnene ved aktivt at fravælge omtalen af køns-pronominer på vores digitale platforme. "/>
     <FN img="/img-figur/fn12.webp" alt="FN Verdensmål 12" text="Vi bidrager til et ansvarligt forbrug og til en cirkulær produktion, da vi handler med brugte legoklodser, der bruges i samme form som da den blev produceret."/>
     <FN img="/img-figur/fn13.webp" alt="FN Verdensmål 13" text="Vi bidrager til at mindske klimaaftrykket på planeten, da vi har taget et aktivt valg om at lave vores digitale webløsning så bæredygtig som muligt."/>
-
+</section>
 </Mainlayout>
 
 <style>
+
+.section{
+    margin-left: 20px;
+}
   .grid_1-1{
         display: grid;
         grid-template-columns: 1fr 1fr;
        
     }
-     h2, p{
-            margin: 20px;
-        }
 
+    p{
+        margin-left: 20px;
+    }
+    h2{
+        margin-top: 40px;
+        margin-left: 12px;
+        margin-bottom: 6px;
+    }
     .paragraf {
         width: 200px;
-        margin:0 60px; 
     }
 
     .p1, .p3 {
@@ -77,28 +86,31 @@ import FN from "../components/FN.astro";
         .grid_1-1{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin: 50px; 
+        margin: 60px; 
     }
 
     .p1, .p2, .p3 {
         width: 700px;
     }
         .paragraf {
-        width: 700px
+        width: 700px;
+        margin:0 60px; 
     }
-        h1, h2, p{
-            font-size: 22px;
-        }
     h1{
         font-size: 110px;
         font-weight: 900;
-        margin-left: 70px;
+        margin-left: 60px;
         margin-top: 50px;
     }
     h2{
-        font-size: 60px;
-        margin-top: 60px;
-        margin-left:120px;
+        margin-top: 80px;
+        margin-left:132px;
     }
+
+    .FN_text{
+        margin-top: 60px;
+    }
+
+
     }
 </style>
